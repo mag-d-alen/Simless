@@ -1,5 +1,6 @@
 import React from "react";
 import { ChooseTariff } from "./chooseTariff/ChooseTariff";
+import { UserForm } from "./form/Form";
 import { Navbar } from "./navbar/Navbar";
 
 export const Home: React.FC = () => {
@@ -7,6 +8,7 @@ export const Home: React.FC = () => {
     <div>
       Home
       <ChooseTariff />
+      <UserForm />
     </div>
   );
 };

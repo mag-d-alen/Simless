@@ -1,27 +1,32 @@
+import React, { useState, useRef } from "react";
+import { faqData } from "../../../countries";
 import {
-  AccordionSummary,
-  Typography,
-  AccordionDetails,
-  Accordion,
-} from "@mui/material";
-import React from "react";
-import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
+  AccordionContainer,
+  AccordionTitle,
+  AccordionContent,
+} from "./accordion.styled";
 
-export const AccordionItem: React.FC<{
-  faqData: { title: string; content: string };
-}> = ({ faqData }) => {
+export const Accordion: React.FC = () => {
+  const [currentAccordion, setCurrentAccordion] = useState<number | null>(null);
+
   return (
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header">
-        <Typography>{faqData.title}</Typography>
-      </AccordionSummary>
-
-      <AccordionDetails>
-        <Typography>{faqData.content}</Typography>
-      </AccordionDetails>
-    </Accordion>
+    <AccordionContainer>
+      {faqData.map((datum, i) => (
+        <div key={i}>
+          <AccordionTitle
+            onClick={() => {
+              currentAccordion === i
+                ? setCurrentAccordion(null)
+                : setCurrentAccordion(i);
+            }}>
+            {datum.title}
+            <span>{currentAccordion !== i ? "+" : "-"}</span>
+          </AccordionTitle>
+          <AccordionContent active={currentAccordion === i}>
+            {datum.content}
+          </AccordionContent>
+        </div>
+      ))}
+    </AccordionContainer>
   );
 };

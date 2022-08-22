@@ -14,12 +14,12 @@ export const ChooseTariff = () => {
   };
   useEffect(() => {
     console.log(selectedCountries);
-    // try {
-    //   const tarifs = axios.get(`${url}/tariffs`);
-    //   console.log(tarifs);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const tarifs = axios.get(`${url}/tariffs`);
+      console.log(tarifs);
+    } catch (error) {
+      console.log(error);
+    }
   }, [selectedCountries]);
 
   return (
