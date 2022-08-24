@@ -1,5 +1,9 @@
 import { MultiValue } from "react-select";
-export type SelectedCountry = MultiValue<{ value: string; label: string }>;
+export type ContextType = {
+  selectedCountries?: SelectedCountryType | undefined;
+  setSelectedCountries: (counties: SelectedCountryType) => void;
+};
+export type SelectedCountryType = MultiValue<{ value: string; label: string }>;
 export type AccordionItemType = { title: string; content: string }[];
 export type AccordionContentType = {
   accordionContent: AccordionItemType;

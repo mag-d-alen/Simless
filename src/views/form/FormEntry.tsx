@@ -1,6 +1,15 @@
 import { Field } from "formik";
 import React from "react";
-import { FormEntryContainer, InputLabel } from "./form.styled";
+import { splitAndCapitalize } from "../../data/splitAndCapitalize";
+import {
+  ErrorAlert,
+  FormEntryContainer,
+  FormFieldContainer,
+  InputContainer,
+  InputLabel,
+  PhoneContainer,
+} from "./form.styled";
+import { FormField } from "./FormField";
 
 export const FormEntry: React.FC<{
   inputField: string;
@@ -9,16 +18,21 @@ export const FormEntry: React.FC<{
 }> = ({ inputField, errors, touched }) => {
   return (
     <FormEntryContainer>
-      <InputLabel>
-        {inputField
-          .toLocaleUpperCase()
-          .split("_")
-          .join(" ")}
-      </InputLabel>
-      <Field name={inputField} type={inputField} />
-      {errors[inputField] && touched[inputField] ? (
-        <div>{errors[inputField]}</div>
-      ) : null}
+      <InputContainer>
+        <InputLabel>{splitAndCapitalize(inputField)}</InputLabel>
+        <FormFieldContainer>
+          {inputField === "sim" ? (
+            <PhoneContainer>
+              +372 <FormField name={inputField} type={inputField} />{" "}
+            </PhoneContainer>
+          ) : (
+            <FormField name={inputField} type={inputField} />
+          )}
+          {errors[inputField] && touched[inputField] ? (
+            <ErrorAlert>{errors[inputField]}</ErrorAlert>
+          ) : null}
+        </FormFieldContainer>
+      </InputContainer>
     </FormEntryContainer>
   );
 };

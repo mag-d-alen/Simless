@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import { faqData } from "../../../countries";
+import { faqData } from "../../../data/data";
+
 import {
   AccordionContainer,
   AccordionTitle,

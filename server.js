@@ -1,38 +1,69 @@
 require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
 const axios = require("axios");
 const cors = require("cors");
-
-require("body-parser-xml")(bodyParser);
 
 const app = express();
 const uname = process.env.UNAME;
 const upass = process.env.UPASS;
 app.use(cors());
 app.use(express.json());
+const uri = `https://tsim-dev.toxiclabs.net/tsim_xml/service/xmlgate?uname=${uname}&upass=${upass}&plain=1&command=`;
 
-const uri = `https://xml2.travelsim.com/tsim_xml/service/xmlgate?uname=${uname}&upass=${upass}&plain=1&command=getrates&aserviceid=9060&servicetype=voice&ratesid=6781`;
-
-app.use(
-  bodyParser.xml({
-    limit: "1MB", // Reject payload bigger than 1
-    xmlParseOptions: {
-      normalize: true, // Trim whitespace inside text nodes
-      normalizeTags: true, // Transform tags to lowercase
-      explicitArray: false, // Only put nodes in array if >1
-    },
-  })
-);
-
-app.get("/tariffs", (req, res) => {
+app.get("/tariffs:countries", async (req, res) => {
+  const countries = req.params.countries;
   try {
-    const res = axios.get(uri);
+    const res = await axios.get(`${uri}getrates`, {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get("/purchase", async (req, res) => {
+  try {
+    const res = await axios.get(`${uri}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// app.get("/charge:num", async (req, res) => {ß
+//   try {
+//     const res = await axios.post(`${uri}sbalance`);
+//     return res.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+app.get("/balance:num", async (req, res) => {
+  const num = req.params.num;
+  try {
+    const res = await axios.get(`${uri}gbalance&onum=${num}`, {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get("/topup:num&sum", async (req, res) => {
+  const { num, sum } = req.params;
+  try {
+    const res = await axios.get(`${uri}gbalance&onum=${num}`);
     console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);
   }
 });
+
+// account;
+// sbalance;
 
 app.listen(8000, () => console.log("server running"));

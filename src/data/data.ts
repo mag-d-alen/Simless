@@ -1,4 +1,4 @@
-export const countries = [
+export const countriesList = [
   { value: "25", label: "Angola, אוגנדה" },
   { value: "26", label: "Uzbekistan אוזבקיסטן" },
   { value: "221", label: "אוסטריה Austria " },
@@ -199,3 +199,6 @@ export const faqData = [
     content: "Oh. You need a little dummy text for your mockup? How quaint.",
   },
 ];
+
+
+export const url = "http://localhost:8000";

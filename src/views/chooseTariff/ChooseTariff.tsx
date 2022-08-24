@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Select from "react-select";
-import axios from "axios";
-import { countries } from "../../countries";
-import { SelectedCountry } from "../../types";
-const url = "http://localhost:8000";
+import { useDispatch } from "react-redux";
+import { setSelectedCountries } from "../../context/MainReducer";
+import { countriesList } from "../../data/data";
+import { Button, ChooseTariffContainer, TariffSelectContainer } from "./chooseTariffs.styled";
 
 export const ChooseTariff = () => {
-  const [selectedCountries, setSelectedCountries] = useState<
-    SelectedCountry | undefined
-  >();
-  const handleUpdateSelected = (selected: SelectedCountry) => {
-    setSelectedCountries(selected);
-  };
-  useEffect(() => {
-    console.log(selectedCountries);
-    try {
-      const tarifs = axios.get(`${url}/tariffs`);
-      console.log(tarifs);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [selectedCountries]);
-
+  const [countries, setCountries] = useState<any>([]);
+  const dispatch = useDispatch();
   return (
-    <Select
-      options={countries}
-      isMulti={true}
-      onChange={(selected) => setSelectedCountries(selected)}
-    />
+    <ChooseTariffContainer>
+      <TariffSelectContainer>
+        <Select
+          options={countriesList}
+          isMulti={true}
+          onChange={(selected) => {
+            setCountries(selected);
+          }}
+        />
+      </TariffSelectContainer>
+      <Button onClick={() => dispatch(setSelectedCountries(countries))}>
+        submit
+      </Button>
+    </ChooseTariffContainer>
   );
 };

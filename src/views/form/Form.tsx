@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { FormEntry } from "./FormEntry";
 import { initialData, SignupSchema } from "./form data";
+import { Button } from "../chooseTariff/chooseTariffs.styled";
 
 
 
@@ -27,9 +28,9 @@ export const UserForm = () => (
             touched={touched}
           />
           <FormEntry inputField={"email"} errors={errors} touched={touched} />
-          <FormEntry inputField={"phone"} errors={errors} touched={touched} />
+          <FormEntry inputField={"sim"} errors={errors} touched={touched} />
 
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </Form>
       )}
     </Formik>
