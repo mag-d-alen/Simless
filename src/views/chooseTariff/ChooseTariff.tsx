@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Select from "react-select";
 import { useDispatch } from "react-redux";
-import { setSelectedCountries } from "../../context/MainReducer";
+import { setSelectedCountries } from "../../redux/InfoSlice";
 import { countriesList } from "../../data/data";
 import { Button, ChooseTariffContainer, TariffSelectContainer } from "./chooseTariffs.styled";
 

@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { ToggleContainer, ToggleLabel } from "./toggle.styled";
-import { CheckBalance } from "../CheckBalance";
 import { ToggleBalance } from "./ToggleBalance";
-import { TopUpBalance } from "../TopUpBalance";
 
-export const ToggleAccountActions = () => {
-  const [isCheckOn, setIsCheckOn] = useState(true);
-  const handleToggle = () => {
-    setIsCheckOn(!isCheckOn);
-  };
+export const ToggleAccountActions: React.FC<{
+  handleToggle: () => void;
+  isCheckOn: boolean;
+}> = ({ handleToggle, isCheckOn }) => {
   return (
     <>
-      <ToggleContainer onClick={handleToggle}>
+      <ToggleContainer>
         <ToggleLabel active={isCheckOn}>Check balance</ToggleLabel>
-        <ToggleBalance right={!isCheckOn} />
+        <div
+          onClick={() => {
+            handleToggle();
+          }}>
+          <ToggleBalance right={!isCheckOn} />
+        </div>
         <ToggleLabel active={!isCheckOn}>top up your account</ToggleLabel>
-          </ToggleContainer>
-      
-              {isCheckOn ? <CheckBalance /> : <TopUpBalance />}
-              
+      </ToggleContainer>
     </>
   );
 };

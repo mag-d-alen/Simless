@@ -3,7 +3,6 @@ import { createUnparsedSourceFile } from "typescript";
 import { SelectedCountryType } from "../data/types";
 const initialState = {
   selectedCountries: [],
-  userNumber: "",
 };
 
 export type mainReducer = typeof initialState;
@@ -18,10 +17,7 @@ export const infoSlice = createSlice({
     ) => {
       return { ...state, selectedCountries: action.payload };
     },
-    setUserNumber: (state: any, action: PayloadAction<string>) => {
-      return { ...state, userNumber: `372${action.payload}` };
-    },
   },
 });
-export const { setSelectedCountries, setUserNumber } = infoSlice.actions;
+export const { setSelectedCountries } = infoSlice.actions;
 export default infoSlice.reducer;

@@ -1,19 +1,24 @@
+import { Formik, Field, Form } from "formik";
 import React from "react";
-import { Formik, Form, Field } from "formik";
-import { FormEntry } from "./FormEntry";
-import { initialData, SignupSchema } from "./form data";
 import { Button } from "../chooseTariff/chooseTariffs.styled";
+import { initialData, SignupSchema } from "./form data";
+import { InputLabel } from "./form.styled";
+import { FormEntry } from "./FormEntry";
+import { useSelector } from "react-redux";
 
+export const InvoiceForm: React.FC<{
+  handleSubmit: (values: any) => void;
+  oneForm: boolean;
+}> = ({ handleSubmit, oneForm }) => {
 
-
-export const UserForm = () => (
-  <div>
-    <h1>Fill your data</h1>
+ 
+  return (
     <Formik
       initialValues={initialData}
       validationSchema={SignupSchema}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={(values, { resetForm }) => {
+        handleSubmit(values);
+        resetForm();
       }}>
       {({ errors, touched }) => (
         <Form>
@@ -29,10 +34,15 @@ export const UserForm = () => (
           />
           <FormEntry inputField={"email"} errors={errors} touched={touched} />
           <FormEntry inputField={"sim"} errors={errors} touched={touched} />
-
+          {oneForm ? (
+            <InputLabel>
+              <Field type="checkbox" name="oneForm" inputField={"oneForm"} />
+              Use the same address for payment
+            </InputLabel>
+          ) : null}
           <Button type="submit">Submit</Button>
         </Form>
       )}
     </Formik>
-  </div>
-);
+  );
+};

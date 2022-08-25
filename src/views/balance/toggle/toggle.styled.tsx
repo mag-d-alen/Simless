@@ -19,7 +19,7 @@ export const ToggleZip = styled.div<{ right: boolean }>`
   height: 1.5rem;
   border-radius: 1rem;
   width: 50%;
-  margin: ${({ right }) => (right ? "0 auto 0 0 " : "0 0 0 auto")};
+  margin: ${({ right }) => (right ? "0 0 0 auto" : "0 auto 0 0 ")};
 `;
 export const ToggleLabel = styled.div<{ active: boolean }>`
   display: flex;

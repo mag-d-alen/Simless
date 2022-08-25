@@ -1,0 +1,13 @@
+import React from "react";
+import { useDispatch } from "react-redux";
+import { setCheckoutStep } from "../../../redux/UserInfoSlice";
+import { Button } from "../../chooseTariff/chooseTariffs.styled";
+
+export const GoBack = () => {
+  const dispatch = useDispatch();
+  return (
+    <Button onClick={() => dispatch(setCheckoutStep("b"))}>
+      &#8592; Go Back
+    </Button>
+  );
+};

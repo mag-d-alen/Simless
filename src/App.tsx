@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import { ChooseTariff } from "./views/chooseTariff/ChooseTariff";
-import { Home } from "./views/Home";
+import { Home } from "./views/home/Home";
 import { Routes, Route, Link } from "react-router-dom";
 import { Navbar } from "./views/navbar/Navbar";
 import { FAQ } from "./views/faq/FAQ";
 import { Contact } from "./views/contact/Contact";
 import { Provider } from "react-redux";
-import { MainController } from "./context/MainController";
+import { MainController } from "./redux/MainController";
 import { SelectedCountryType } from "./data/types";
-import { store } from "./context/store";
+import { store } from "./redux/store";
+import { BalanceMain } from "./views/balance/BalanceMain";
 
 function App() {
   const [selectedCountries, setSelectedCountries] = useState<
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/faq" element={<FAQ />}></Route>
+        <Route path="/balance" element={<BalanceMain />}></Route>
       </Routes>
     </Provider>
   );

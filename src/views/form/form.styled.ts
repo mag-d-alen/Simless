@@ -3,9 +3,11 @@ import { Field } from "formik";
 
 export const InputLabel = styled.div`
   display: flex;
-  justify-content: flex-end;
+  padding-left: 2rem;
   font-size: smaller;
   flex: 1;
+  text-transform: uppercase;
+  gap: 1rem;
 `;
 export const FormEntryContainer = styled.div`
   display: flex;
@@ -53,4 +55,8 @@ export const ErrorAlert = styled.div`
   margin: -0.5rem 0.5rem 0.5rem 0.5rem;
   text-transform: uppercase;
   font-weight: 500;
+`;
+export const InvoiceTitle = styled.h3`
+  text-align: center;
+text-transform: uppercase;
 `;
