@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setCheckoutStep } from "../../redux/UserInfoSlice";
+import {
+  setCheckoutStep,
+  resetUserInvoiceInfo,
+  resetUserPaymentInfo,
+} from "../../redux/UserInfoSlice";
 import {
   CloseButton,
   DialogBodyContaier,
@@ -20,7 +24,7 @@ export const PaymentDialog: React.FC<{
         <CloseButton
           onClick={(e) => {
             e.stopPropagation();
-            dispatch(setCheckoutStep("f"));
+            dispatch(setCheckoutStep(4));
             close();
           }}>
           X

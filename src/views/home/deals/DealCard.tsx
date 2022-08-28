@@ -1,4 +1,6 @@
 import React, { FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCheckoutStep, setChosenDeal } from "../../../redux/UserInfoSlice";
 import { Button } from "../../general.styled";
 import { ChipIcon } from "./ChipIcon";
 import {
@@ -16,13 +18,19 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
   countries,
 }) => {
   const [chosen, setChosen] = useState({ name: "", ticked: "" });
+    const dispatch = useDispatch();
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(chosen);
+  dispatch(setChosenDeal(chosen));
+    dispatch(setCheckoutStep(2));
   };
   return (
     <DealCardContainer>
-      <DealCardTitle><ChipIcon></ChipIcon>{name}</DealCardTitle>
+      <DealCardTitle>
+        <ChipIcon></ChipIcon>
+        {name}
+      </DealCardTitle>
       <DealCardCountries>{countries}</DealCardCountries>
       <form onSubmit={(e) => handleSubmit(e)}>
         <DealCardBody>

@@ -19,6 +19,10 @@ const initialState = {
     additionalPhone: "",
   },
   checkoutStep: 1,
+  chosenDeal: {
+    name: "",
+    giga: "",
+  },
 };
 
 export type mainReducer = typeof initialState;
@@ -36,12 +40,23 @@ export const userInfoSlice = createSlice({
     setUserPaymentInfo: (state: any, action: PayloadAction<any>) => {
       return { ...state, payment: action.payload };
     },
-    setCheckoutStep: (state: any, action: PayloadAction<string>) => {
-      if (action.payload === "f" && state.checkoutStep < 4)
-        return { ...state, checkoutStep: state.checkoutStep + 1 };
-      else if (action.payload === "b" && state.checkoutStep > 1)
-        return { ...state, checkoutStep: state.checkoutStep - 1 };
-       return { ...state, checkoutStep: initialState.checkoutStep };
+    resetUserInvoiceInfo: (state: any, action: PayloadAction<any>) => {
+      return { ...state, invoice: initialState.invoice };
+    },
+    resetUserPaymentInfo: (state: any, action: PayloadAction<any>) => {
+      return { ...state, payment: initialState.payment };
+    },
+    setCheckoutStep: (state: any, action: PayloadAction<string | number>) => {
+      if (action.payload === "b" && state.checkoutStep > 1) {
+        return { ...state, checkoutStep: state.checkoutStep - 1 }
+      }
+      return { ...state, checkoutStep: action.payload };
+    },
+    setChosenDeal: (state: any, action: PayloadAction<any>) => {
+      return { ...state, chosenDeal: action.payload };
+    },
+    resetChosenDeal: (state: any, action: PayloadAction<any>) => {
+      return { ...state, chosenDeal: initialState.chosenDeal };
     },
   },
 });
@@ -50,5 +65,9 @@ export const {
   setUserInvoiceInfo,
   setUserPaymentInfo,
   setCheckoutStep,
+  resetUserInvoiceInfo,
+  resetUserPaymentInfo,
+  setChosenDeal,
+  resetChosenDeal,
 } = userInfoSlice.actions;
 export default userInfoSlice.reducer;

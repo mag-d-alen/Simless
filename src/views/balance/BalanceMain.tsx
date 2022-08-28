@@ -14,7 +14,6 @@ export const BalanceMain: React.FC = () => {
   return (
     <BalanceMainContainer>
       <ToggleAccountActions handleToggle={handleToggle} isCheckOn={isCheckOn} />
-
       {!isCheckOn ? (
         <TopUpMain />
       ) : (

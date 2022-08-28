@@ -12,7 +12,7 @@ import { Button } from "../../general.styled";
 
 export const TopUpBalance: React.FC = () => {
   const dispatch = useDispatch();
-  const { userSimNumber } = useSelector((s: any) => s.userInfo);
+  const { userSimNumber, checkoutStep } = useSelector((s: any) => s.userInfo);
 
   return (
     <Formik
@@ -20,13 +20,13 @@ export const TopUpBalance: React.FC = () => {
       validationSchema={TopUpSchema}
       onSubmit={(values) => {
         dispatch(setUserSimNumber(values.sim));
-        dispatch(setCheckoutStep("f"));
+        dispatch(setCheckoutStep(2));
       }}>
       {({ errors, touched }) => (
         <Form>
           <FormEntry inputField="sim" errors={errors} touched={touched} />
           <FormEntry inputField="amount" errors={errors} touched={touched} />
-          <Button type="submit">Go to Invoice </Button>
+          {checkoutStep === 1 && <Button type="submit">Go to Invoice </Button>}
         </Form>
       )}
     </Formik>

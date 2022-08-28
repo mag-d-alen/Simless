@@ -21,11 +21,11 @@ export const UserDetails: React.FC = () => {
     if (values.oneForm) {
       dispatch(setUserInvoiceInfo(infoValues));
       dispatch(setUserPaymentInfo(infoValues));
-      dispatch(setCheckoutStep("f"));
+      dispatch(setCheckoutStep(3));
     } else {
       if (showPaymentForm) {
         dispatch(setUserPaymentInfo(infoValues));
-        dispatch(setCheckoutStep("f"));
+        dispatch(setCheckoutStep(3));
       }
       dispatch(setUserInvoiceInfo(infoValues));
       setShowPaymentForm(true);
