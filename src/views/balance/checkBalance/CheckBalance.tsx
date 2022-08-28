@@ -2,9 +2,9 @@ import { Formik, Form } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setUserSimNumber } from "../../../redux/UserInfoSlice";
-import { Button } from "../../chooseTariff/chooseTariffs.styled";
 import { CheckBalanceSchema } from "../../form/form data";
 import { FormEntry } from "../../form/FormEntry";
+import { Button } from "../../general.styled";
 
 export const CheckBalance = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,7 @@
 import React from "react";
+import { ToggleButton, ToggleZip } from "../../general.styled";
 
-import { ToggleButton, ToggleZip } from "./toggle.styled";
+
 
 export const ToggleBalance: React.FC<{
   right: boolean;

@@ -5,6 +5,7 @@ import {
   AccordionContainer,
   AccordionTitle,
   AccordionContent,
+  AccordionInner,
 } from "./accordion.styled";
 
 export const Accordion: React.FC = () => {
@@ -13,7 +14,7 @@ export const Accordion: React.FC = () => {
   return (
     <AccordionContainer>
       {faqData.map((datum, i) => (
-        <div key={i}>
+        <AccordionInner active={currentAccordion === i} key={i}>
           <AccordionTitle
             onClick={() => {
               currentAccordion === i
@@ -26,7 +27,7 @@ export const Accordion: React.FC = () => {
           <AccordionContent active={currentAccordion === i}>
             {datum.content}
           </AccordionContent>
-        </div>
+        </AccordionInner>
       ))}
     </AccordionContainer>
   );

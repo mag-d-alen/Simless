@@ -1,16 +1,18 @@
 import { Formik, Form } from "formik";
 import React from "react";
-import { Button } from "../../chooseTariff/chooseTariffs.styled";
+
 import { TopUpSchema } from "../../form/form data";
 import { FormEntry } from "../../form/FormEntry";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setUserSimNumber,
   setCheckoutStep,
 } from "../../../redux/UserInfoSlice";
+import { Button } from "../../general.styled";
 
 export const TopUpBalance: React.FC = () => {
   const dispatch = useDispatch();
+  const { userSimNumber } = useSelector((s: any) => s.userInfo);
 
   return (
     <Formik
@@ -24,7 +26,7 @@ export const TopUpBalance: React.FC = () => {
         <Form>
           <FormEntry inputField="sim" errors={errors} touched={touched} />
           <FormEntry inputField="amount" errors={errors} touched={touched} />
-          <Button type="submit">Go to Invoice</Button>
+          <Button type="submit">Go to Invoice </Button>
         </Form>
       )}
     </Formik>

@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { Field } from "formik";
+import { Field, Formik } from "formik";
+
+export const FormMainContainer = styled.div`
+  display: flex;
+  flex-direction: center;
+  flex-direction: column;
+`;
 
 export const InputLabel = styled.div`
   display: flex;
@@ -58,5 +64,5 @@ export const ErrorAlert = styled.div`
 `;
 export const InvoiceTitle = styled.h3`
   text-align: center;
-text-transform: uppercase;
+  text-transform: uppercase;
 `;

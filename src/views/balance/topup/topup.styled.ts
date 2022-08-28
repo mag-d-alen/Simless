@@ -1,23 +1,30 @@
 import styled from "styled-components";
 
+export const TopUpMainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+`;
+
 export const BalanceMainContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 `;
 
 export const ProgressContainer = styled.div`
   display: flex;
-  height: 1.5rem;
-  background-color: aliceblue;
+  height: 1rem;
+  border: 1px solid #483d8b61;
   border-radius: 0.3rem;
-  width: 50%;
 `;
 export const ProgressZipper = styled.div<{ step: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: ${({ step }) => `${step}%`};
-  height: 0.9rem;
   background-color: #483d8b61;
   border-radius: 0.3rem;
   color: white;
@@ -27,9 +34,8 @@ export const ProgressZipper = styled.div<{ step: number }>`
 `;
 export const TopupTopBar = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
 `;
 export const SuccessContainer = styled.div`

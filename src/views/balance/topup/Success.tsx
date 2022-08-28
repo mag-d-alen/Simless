@@ -10,14 +10,11 @@ export const Success = () => {
   const dispatch = useDispatch();
   return (
     <DialogContainer show={isOpen}>
-      <SuccessContainer>
-        <CloseButton
-          onClick={() => {
-            setIsOpen(false);
-            dispatch(setCheckoutStep("z"));
-          }}>
-          X
-        </CloseButton>
+      <SuccessContainer
+        onClick={() => {
+          setIsOpen(false);
+          dispatch(setCheckoutStep("z"));
+        }}>
         Success
         <SuccessIcon />
       </SuccessContainer>

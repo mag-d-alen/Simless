@@ -5,8 +5,7 @@ import {
   setUserInvoiceInfo,
   setUserPaymentInfo,
 } from "../../redux/UserInfoSlice";
-import { Button } from "../chooseTariff/chooseTariffs.styled";
-import { InvoiceTitle } from "./form.styled";
+import { FormMainContainer, InvoiceTitle } from "./form.styled";
 import { InvoiceForm } from "./InvoiceForm";
 
 export const UserDetails: React.FC = () => {
@@ -25,21 +24,21 @@ export const UserDetails: React.FC = () => {
       dispatch(setCheckoutStep("f"));
     } else {
       if (showPaymentForm) {
-         dispatch(setUserPaymentInfo(infoValues));
-          dispatch(setCheckoutStep("f"));
+        dispatch(setUserPaymentInfo(infoValues));
+        dispatch(setCheckoutStep("f"));
       }
       dispatch(setUserInvoiceInfo(infoValues));
       setShowPaymentForm(true);
     }
   };
   return (
-    <div>
+    <FormMainContainer>
       {showPaymentForm ? (
         <InvoiceTitle>Fill in the payment information details</InvoiceTitle>
       ) : (
         <InvoiceTitle>Fill in the Invoice Form</InvoiceTitle>
       )}
       <InvoiceForm oneForm={!showPaymentForm} handleSubmit={handleSubmit} />
-    </div>
+    </FormMainContainer>
   );
 };

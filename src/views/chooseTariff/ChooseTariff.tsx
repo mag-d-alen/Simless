@@ -3,7 +3,11 @@ import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { setSelectedCountries } from "../../redux/InfoSlice";
 import { countriesList } from "../../data/data";
-import { Button, ChooseTariffContainer, TariffSelectContainer } from "./chooseTariffs.styled";
+import {
+  ChooseTariffContainer,
+  TariffSelectContainer,
+} from "./chooseTariffs.styled";
+import { Button } from "../general.styled";
 
 export const ChooseTariff = () => {
   const [countries, setCountries] = useState<any>([]);

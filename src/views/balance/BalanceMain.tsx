@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { CheckBalance } from "./checkBalance/CheckBalance";
 import { DisplayBalance } from "./checkBalance/DisplayBalance";
 import { ToggleAccountActions } from "./toggle/ToggleAccountActions";
-import { GoBack } from "./topup/GoBack";
-import { StepProgress } from "./topup/StepProgress";
-import { BalanceMainContainer, TopupTopBar } from "./topup/topup.styled";
-import { TopUpSteps } from "./topup/TopUpSteps";
+import { BalanceMainContainer } from "./topup/topup.styled";
+import { TopUpMain } from "./topup/TopUpMain";
 
 export const BalanceMain: React.FC = () => {
   const [isCheckOn, setIsCheckOn] = useState(true);
@@ -18,12 +16,7 @@ export const BalanceMain: React.FC = () => {
       <ToggleAccountActions handleToggle={handleToggle} isCheckOn={isCheckOn} />
 
       {!isCheckOn ? (
-        <>
-          <TopupTopBar>
-            <GoBack /> <StepProgress />
-          </TopupTopBar>
-          <TopUpSteps />
-        </>
+        <TopUpMain />
       ) : (
         <>
           <CheckBalance />

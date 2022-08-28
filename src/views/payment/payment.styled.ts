@@ -1,12 +1,5 @@
 import styled from "styled-components";
-export const IFrame = styled.iframe`
-  background-color: white;
-  border: none;
-  width: 100%;
-  border-radius: 0.3rem;
-  max-height: 80%;
-  overflow: auto;
-`;
+
 export const DialogContainer = styled.div<{ show: boolean }>`
   z-index: auto;
   display: ${({ show }) => (show ? "flex" : "none")};
@@ -19,6 +12,20 @@ export const DialogContainer = styled.div<{ show: boolean }>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+`;
+export const DialogBodyContaier = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+export const IFrame = styled.iframe`
+  background-color: white;
+  border: none;
+  min-width: fit-content;
+  border-radius: 0.3rem;
+  max-height: 50%;
+  overflow: auto;
 `;
 export const CloseButton = styled.button`
   width: 2rem;

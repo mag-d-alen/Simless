@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Button } from "../chooseTariff/chooseTariffs.styled";
+import { Button } from "../general.styled";
 import { PaymentDialog } from "./PaymentDialog";
 
 export const PaymentMain: React.FC = () => {

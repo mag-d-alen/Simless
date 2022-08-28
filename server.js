@@ -16,7 +16,6 @@ app.get("/tariffs:countries", async (req, res) => {
     const res = await axios.get(`${uri}getrates`, {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
-    return res.data;
   } catch (error) {
     console.log(error);
   }
@@ -31,7 +30,10 @@ app.get("/purchase", async (req, res) => {
   }
 });
 
-// app.get("/charge:num", async (req, res) => {ß
+// app.get("/charge:num", async (req, res) => {
+// const num = req.params.num
+// const amount = req.query.amount
+
 //   try {
 //     const res = await axios.post(`${uri}sbalance`);
 //     return res.data;
