@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
-  setCheckoutStep,
   setUserInvoiceInfo,
   setUserPaymentInfo,
-} from "../../redux/UserInfoSlice";
+  setCheckoutStep,
+} from "../../redux/TopUpSlice";
 import { FormMainContainer, InvoiceTitle } from "./form.styled";
 import { InvoiceForm } from "./InvoiceForm";
 

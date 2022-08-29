@@ -52,17 +52,30 @@ export const PhoneContainer = styled.div`
   align-items: center;
 `;
 export const ErrorAlert = styled.div`
-  background-color: #ff0000b8;
-  color: white;
+  background-color: white;
+  color: red;
   border: none;
   border-radius: 0.3rem;
   padding: 0.3rem;
   font-size: 0.5rem;
   margin: -0.5rem 0.5rem 0.5rem 0.5rem;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 `;
 export const InvoiceTitle = styled.h3`
   text-align: center;
   text-transform: uppercase;
+`;
+
+export const FormTextArea = styled(Field)`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: aliceblue;
+  border: none;
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  width: 20rem;
+  height: 20rem;
 `;

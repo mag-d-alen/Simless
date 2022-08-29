@@ -1,10 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  setCheckoutStep,
-  resetUserInvoiceInfo,
-  resetUserPaymentInfo,
-} from "../../redux/UserInfoSlice";
+import { setCheckoutStep } from "../../redux/TopUpSlice";
+
 import {
   CloseButton,
   DialogBodyContaier,

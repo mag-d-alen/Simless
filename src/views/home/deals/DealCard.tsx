@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setCheckoutStep, setChosenDeal } from "../../../redux/UserInfoSlice";
+import { setChosenDeal } from "../../../redux/SimPurchaseSlice";
+import { setCheckoutStep } from "../../../redux/TopUpSlice";
 import { Button } from "../../general.styled";
 import { ChipIcon } from "./ChipIcon";
 import {
@@ -57,7 +58,7 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
         <DealCardPrice>180 ש`ח</DealCardPrice>
         <DealCardButtons>
           <Button id="pay" type="submit">
-            Pay
+           Checkout
           </Button>
           <Button id="cart" type="submit">
             Add To Cart

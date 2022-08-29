@@ -15,6 +15,7 @@ export const BalanceMainContainer = styled.div`
 `;
 
 export const ProgressContainer = styled.div`
+  width: 20rem;
   display: flex;
   height: 1rem;
   border: 1px solid #483d8b61;

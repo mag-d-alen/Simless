@@ -3,10 +3,12 @@ import { useSelector } from "react-redux";
 import { ProgressContainer, ProgressZipper } from "./topup.styled";
 
 export const StepProgress = () => {
-  const checkoutStep = useSelector((s: any) => s.userInfo.checkoutStep);
+  const checkoutStep = useSelector((s: any) => s.topUp.checkoutStep);
   return (
     <ProgressContainer>
-      <ProgressZipper step={checkoutStep*25}>step {checkoutStep}</ProgressZipper>
+      <ProgressZipper step={checkoutStep * 25}>
+        step {checkoutStep}
+      </ProgressZipper>
     </ProgressContainer>
   );
 };

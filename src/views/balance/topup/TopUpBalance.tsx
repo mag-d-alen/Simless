@@ -4,22 +4,23 @@ import React from "react";
 import { TopUpSchema } from "../../form/form data";
 import { FormEntry } from "../../form/FormEntry";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setUserSimNumber,
-  setCheckoutStep,
-} from "../../../redux/UserInfoSlice";
 import { Button } from "../../general.styled";
+import { setCheckoutStep, setTopUpSimNumber } from "../../../redux/TopUpSlice";
+import { StepProgress } from "./StepProgress";
+import { GoBack } from "./GoBack";
 
 export const TopUpBalance: React.FC = () => {
   const dispatch = useDispatch();
-  const { userSimNumber, checkoutStep } = useSelector((s: any) => s.userInfo);
+  const checkoutStep = useSelector((s: any) => s.topUp.checkoutStep);
 
-  return (
+  return (<>
+      <StepProgress />
+      {checkoutStep > 1 && <GoBack />}
     <Formik
       initialValues={{ sim: "", amount: "" }}
       validationSchema={TopUpSchema}
       onSubmit={(values) => {
-        dispatch(setUserSimNumber(values.sim));
+        dispatch(setTopUpSimNumber(values.sim));
         dispatch(setCheckoutStep(2));
       }}>
       {({ errors, touched }) => (
@@ -30,5 +31,6 @@ export const TopUpBalance: React.FC = () => {
         </Form>
       )}
     </Formik>
+    </>
   );
 };

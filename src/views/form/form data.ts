@@ -44,3 +44,16 @@ export const TopUpSchema = Yup.object().shape({
     .matches(amountRegExp, "insert a value amount")
     .required("Required"),
 });
+
+export const ContactSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Name is too short")
+    .max(50, "Name is too Long")
+    .required("Required"),
+  email: Yup.string()
+    .email("Enter correct email")
+    .required("Required"),
+  message: Yup.string()
+    .min(10, "Message is too short")
+    .required("Required"),
+});

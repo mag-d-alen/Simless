@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  resetChosenDeal,
-  resetUserInvoiceInfo,
-  resetUserPaymentInfo,
-  setCheckoutStep,
-} from "../../../redux/UserInfoSlice";
-import { CloseButton, DialogContainer } from "../../payment/payment.styled";
+import { resetChosenDeal } from "../../../redux/SimPurchaseSlice";
+import { setCheckoutStep, resetUserInvoiceInfo, resetUserPaymentInfo } from "../../../redux/TopUpSlice";
+
+import { DialogContainer } from "../../payment/payment.styled";
 import { SuccessIcon } from "../../payment/SuccessIcon";
 import { SuccessContainer } from "./topup.styled";
 
