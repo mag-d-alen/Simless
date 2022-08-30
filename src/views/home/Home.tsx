@@ -1,9 +1,8 @@
 import React from "react";
 import { PaymentSteps } from "../payment/PaymentSteps";
-import { ChooseTariff } from "../chooseTariff/ChooseTariff";
-import { Deals } from "./deals/Deals";
 import { HomeContainer, Typography } from "./home.styled";
 import { useSelector } from "react-redux";
+import { TariffsMain } from "../tariffs/TariffsMain";
 
 export const Home: React.FC = () => {
   const chosenDeal = useSelector((s: any) => s.simPurchase.chosenDeal);
@@ -13,11 +12,7 @@ export const Home: React.FC = () => {
       {chosenDeal.length && checkoutStep > 1 ? (
         <PaymentSteps />
       ) : (
-        <>
-          <Typography>Choose a deal that suits your needs</Typography>
-          <ChooseTariff />
-          <Deals />
-        </>
+        <TariffsMain />
       )}
     </HomeContainer>
   );

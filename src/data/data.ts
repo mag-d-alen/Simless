@@ -200,21 +200,21 @@ export const faqData = [
   },
 ];
 
-export const url = "http://localhost:8000";
+export const url = "http://localhost:8000/api";
 
 export const deals = [
-         {
-           name: "deal1",
-           countries: ["England, Danemark, Sweden"],
-         },
-         {
-           name: "deal2",
-           countries: ["England, Gabon, Egypt"],
-         },
-         {
-           name: "deal3",
-           countries: [
-             "England, Tailand, Japan, Argentina, Denmark, Israel, England, Tailand, Japan, Argentina, Denmark, Israel",
-           ],
-         },
-       ];
+  {
+    name: "deal1",
+    countries: ["England, Danemark, Sweden"],
+  },
+  {
+    name: "deal2",
+    countries: ["England, Gabon, Egypt"],
+  },
+  {
+    name: "deal3",
+    countries: [
+      "England, Tailand, Japan, Argentina, Denmark, Israel, England, Tailand, Japan, Argentina, Denmark, Israel",
+    ],
+  },
+];

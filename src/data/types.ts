@@ -13,3 +13,22 @@ export type AccordionContentType = {
   bodyHeight: number;
   setBodyHeight: (height: any) => void;
 };
+export type RatesService = {
+  serviceid_name: string;
+  serviceid: string;
+  VAT_coefficient: string;
+  GPRS_plan: any;
+  SMS_plan: any;
+  Voice_plan: any;
+  VAS: any[];
+}[];
+export type SimDataType = {
+  aserviceid: string;
+  balance: string;
+  blocked: string;
+  curr: string;
+  inum: string;
+  onum: string;
+  prepayed: string;
+  tsimid: string;
+};

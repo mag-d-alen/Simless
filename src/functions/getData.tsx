@@ -10,12 +10,10 @@ export const getData = async ({
 }) => {
   try {
     const data = params
-      ? await axios.get(`${url}/${route}:${params}`)
+      ? await axios.get(`${url}/${route}${params}`)
       : await axios.get(`${url}/${route}`);
     return data;
   } catch (error) {
     console.log(error);
   }
 };
-
-//37257398176

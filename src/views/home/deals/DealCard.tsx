@@ -19,11 +19,11 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
   countries,
 }) => {
   const [chosen, setChosen] = useState({ name: "", ticked: "" });
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-  dispatch(setChosenDeal(chosen));
+    dispatch(setChosenDeal(chosen));
     dispatch(setCheckoutStep(2));
   };
   return (
@@ -37,7 +37,7 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
         <DealCardBody>
           {["1G", "3G", "5G"].map((g) => {
             return (
-              <DealCardGigaOption>
+              <DealCardGigaOption key={g}>
                 {g}
                 <input
                   type="checkbox"
@@ -58,7 +58,7 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
         <DealCardPrice>180 ש`ח</DealCardPrice>
         <DealCardButtons>
           <Button id="pay" type="submit">
-           Checkout
+            Checkout
           </Button>
           <Button id="cart" type="submit">
             Add To Cart

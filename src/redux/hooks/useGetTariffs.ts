@@ -1,9 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getData } from "../../functions/getData";
+import { setRatesService } from "../InfoSlice";
+import { RatesService } from "../../data/types";
+import { AxiosResponse } from "axios";
 export const useGetTariffs = () => {
+  const dispatch = useDispatch();
   const selectedCountries = useSelector((s: any) => s.info.selectedCountries);
-  const [data, setData] = useState<any>();
+
   useEffect(() => {
     if (!selectedCountries.length) return;
     const countryCodes = selectedCountries.map(
@@ -13,8 +17,8 @@ export const useGetTariffs = () => {
         }
       }
     );
-    setData(getData({ route: "tariffs", params: countryCodes }));
-    console.log(data);
+    getData({ route: "tariffs", params: countryCodes }).then((data: any) => {
+      dispatch(setRatesService(data.data.service));
+    });
   }, [selectedCountries]);
-  return data;
 };
