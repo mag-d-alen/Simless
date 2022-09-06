@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { resetChosenDeal } from "../../../redux/SimPurchaseSlice";
-import { setCheckoutStep, resetUserInvoiceInfo, resetUserPaymentInfo } from "../../../redux/TopUpSlice";
+import {
+  setCheckoutStep,
+  resetUserInvoiceInfo,
+  resetUserPaymentInfo,
+} from "../../../redux/TopUpSlice";
 
 import { DialogContainer } from "../../payment/payment.styled";
 import { SuccessIcon } from "../../payment/SuccessIcon";
@@ -16,9 +20,9 @@ export const Success = () => {
         onClick={() => {
           setIsOpen(false);
           dispatch(setCheckoutStep(1));
-          dispatch(resetChosenDeal({}));
-          dispatch(resetUserInvoiceInfo({}));
-          dispatch(resetUserPaymentInfo({}));
+          dispatch(resetChosenDeal(""));
+          dispatch(resetUserInvoiceInfo(null));
+          dispatch(resetUserPaymentInfo(null));
         }}>
         Success
         <SuccessIcon />

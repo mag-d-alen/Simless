@@ -202,17 +202,17 @@ export const faqData = [
 
 export const url = "http://localhost:8000/api";
 
-export const deals = [
+export const packages = [
   {
-    name: "deal1",
+    name: "package1",
     countries: ["England, Danemark, Sweden"],
   },
   {
-    name: "deal2",
+    name: "package2",
     countries: ["England, Gabon, Egypt"],
   },
   {
-    name: "deal3",
+    name: "package3",
     countries: [
       "England, Tailand, Japan, Argentina, Denmark, Israel, England, Tailand, Japan, Argentina, Denmark, Israel",
     ],

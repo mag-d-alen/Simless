@@ -1,7 +1,40 @@
 import { MultiValue } from "react-select";
-export type ContextType = {
-  selectedCountries?: SelectedCountryType | undefined;
-  setSelectedCountries: (counties: SelectedCountryType) => void;
+export type InitialTopuUpState = {
+  topUpSimNumber: string;
+  invoice: InvoiceType | null;
+  payment: InvoiceType | null;
+  checkoutStep: number;
+  topUpAmount: string;
+  orderId: number;
+};
+export type InvoiceType = {
+  first_Name: string;
+  last_Name: string;
+  sim: string;
+  email: string;
+  phone?: string;
+  additionalPhone?: string;
+  oneForm?: boolean;
+};
+export type InitialInfoStateType = {
+  selectedCountries?: string[];
+  ratesService?: RatesService;
+  loading?: boolean;
+};
+export type InitialSimPurchaseState = {
+  chosenDeal:string[] 
+}
+export type InitialUserInfoType = {
+  userSimNumber: string,
+  simData: SimDataType
+}
+export type TopUpResponseType = {
+  balance: number,
+  amount: string,
+    inum: string,
+    onum: string,
+    orderid: number,
+
 };
 export type SelectedCountryType = MultiValue<{ value: string; label: string }>;
 export type AccordionItemType = { title: string; content: string }[];

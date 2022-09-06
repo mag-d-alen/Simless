@@ -3,11 +3,11 @@ import React from "react";
 import { initialData, SignupSchema } from "./form data";
 import { FormMainContainer, InputLabel } from "./form.styled";
 import { FormEntry } from "./FormEntry";
-import { useSelector } from "react-redux";
 import { Button } from "../general.styled";
+import { InvoiceType } from "../../data/types";
 
 export const InvoiceForm: React.FC<{
-  handleSubmit: (values: any) => void;
+  handleSubmit: (values: InvoiceType) => void;
   oneForm: boolean;
 }> = ({ handleSubmit, oneForm }) => {
 

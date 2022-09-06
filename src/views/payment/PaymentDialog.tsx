@@ -1,6 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setCheckoutStep } from "../../redux/TopUpSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useTopUpSimMutation } from "../../redux/api/simQuery";
+import { setCheckoutStep, setOrderId } from "../../redux/TopUpSlice";
 
 import {
   CloseButton,
@@ -14,14 +15,23 @@ export const PaymentDialog: React.FC<{
   close: () => void;
 }> = ({ isOpen, close }) => {
   const dispatch = useDispatch();
-
+  const [topUpSim] = useTopUpSimMutation();
+  const { topUpSimNumber, topUpAmount, orderId } = useSelector(
+    (s: any) => s.topUp
+  );
   return (
     <DialogContainer show={isOpen}>
       <DialogBodyContaier>
         <CloseButton
           onClick={(e) => {
             e.stopPropagation();
+            topUpSim({
+              num: topUpSimNumber,
+              amount: topUpAmount,
+              orderId: orderId,
+            });
             dispatch(setCheckoutStep(4));
+            dispatch(setOrderId(1));
             close();
           }}>
           X

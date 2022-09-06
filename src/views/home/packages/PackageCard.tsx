@@ -5,16 +5,16 @@ import { setCheckoutStep } from "../../../redux/TopUpSlice";
 import { Button } from "../../general.styled";
 import { ChipIcon } from "./ChipIcon";
 import {
-  DealCardContainer,
-  DealCardTitle,
-  DealCardBody,
-  DealCardCountries,
-  DealCardPrice,
-  DealCardButtons,
-  DealCardGigaOption,
-} from "./deals.styled";
+  PackageCardContainer,
+  PackageCardTitle,
+  PackageCardCountries,
+  PackageCardBody,
+  PackageCardGigaOption,
+  PackageCardPrice,
+  PackageCardButtons,
+} from "./packages.styled";
 
-export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
+export const PackageCard: React.FC<{ name: string; countries: string[] }> = ({
   name,
   countries,
 }) => {
@@ -23,21 +23,21 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(setChosenDeal(chosen));
+    dispatch(setChosenDeal(chosen.name));
     dispatch(setCheckoutStep(2));
   };
   return (
-    <DealCardContainer>
-      <DealCardTitle>
+    <PackageCardContainer>
+      <PackageCardTitle>
         <ChipIcon></ChipIcon>
         {name}
-      </DealCardTitle>
-      <DealCardCountries>{countries}</DealCardCountries>
+      </PackageCardTitle>
+      <PackageCardCountries>{countries}</PackageCardCountries>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <DealCardBody>
+        <PackageCardBody>
           {["1G", "3G", "5G"].map((g) => {
             return (
-              <DealCardGigaOption key={g}>
+              <PackageCardGigaOption key={g}>
                 {g}
                 <input
                   type="checkbox"
@@ -51,20 +51,20 @@ export const DealCard: React.FC<{ name: string; countries: string[] }> = ({
                     });
                   }}
                 />
-              </DealCardGigaOption>
+              </PackageCardGigaOption>
             );
           })}
-        </DealCardBody>
-        <DealCardPrice>180 ש`ח</DealCardPrice>
-        <DealCardButtons>
+        </PackageCardBody>
+        <PackageCardPrice>180 ש`ח</PackageCardPrice>
+        <PackageCardButtons>
           <Button id="pay" type="submit">
             Checkout
           </Button>
           <Button id="cart" type="submit">
             Add To Cart
           </Button>
-        </DealCardButtons>
+        </PackageCardButtons>
       </form>
-    </DealCardContainer>
+    </PackageCardContainer>
   );
 };

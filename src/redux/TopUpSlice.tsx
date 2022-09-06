@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SelectedCountryType } from "../data/types";
-const initialState = {
+import { InitialTopuUpState, InvoiceType } from "../data/types";
+const initialState: InitialTopuUpState = {
   topUpSimNumber: "",
   invoice: {
     first_Name: "",
@@ -19,31 +19,64 @@ const initialState = {
     additionalPhone: "",
   },
   checkoutStep: 1,
+  topUpAmount: "",
+  orderId: 187,
 };
-
-export type mainReducer = typeof initialState;
 
 export const topUpSlice = createSlice({
   name: "topUp",
   initialState,
   reducers: {
-    setTopUpSimNumber: (state: any, action: PayloadAction<any>) => {
-      return { ...state, userSimNumber: action.payload };
+    setTopUpSimNumber: (
+      state: InitialTopuUpState,
+      action: PayloadAction<string>
+    ) => {
+      return { ...state, topUpSimNumber: "372" + action.payload };
     },
-    setUserInvoiceInfo: (state: any, action: PayloadAction<any>) => {
+    setTopUpSimAmount: (
+      state: InitialTopuUpState,
+      action: PayloadAction<string>
+    ) => {
+      return { ...state, topUpAmount: action.payload + ".00" };
+    },
+    resetTopUpSimAmount: (
+      state: InitialTopuUpState,
+      action: PayloadAction<string>
+    ) => {
+      return { ...state, topUpAmount: action.payload };
+    },
+    setOrderId: (state: InitialTopuUpState, action: PayloadAction<number>) => {
+      return { ...state, orderId: state.orderId + action.payload };
+    },
+    setUserInvoiceInfo: (
+      state: InitialTopuUpState,
+      action: PayloadAction<InvoiceType>
+    ) => {
       return { ...state, invoice: action.payload };
     },
-    setUserPaymentInfo: (state: any, action: PayloadAction<any>) => {
+    setUserPaymentInfo: (
+      state: InitialTopuUpState,
+      action: PayloadAction<InvoiceType>
+    ) => {
       return { ...state, payment: action.payload };
     },
-    resetUserInvoiceInfo: (state: any, action: PayloadAction<any>) => {
+    resetUserInvoiceInfo: (
+      state: InitialTopuUpState,
+      action: PayloadAction<null>
+    ) => {
       return { ...state, invoice: initialState.invoice };
     },
-    resetUserPaymentInfo: (state: any, action: PayloadAction<any>) => {
+    resetUserPaymentInfo: (
+      state: InitialTopuUpState,
+      action: PayloadAction<null>
+    ) => {
       return { ...state, payment: initialState.payment };
     },
-    setCheckoutStep: (state: any, action: PayloadAction<string | number>) => {
-      if (action.payload === "b" && state.checkoutStep > 1) {
+    setCheckoutStep: (
+      state: InitialTopuUpState,
+      action: PayloadAction<number>
+    ) => {
+      if (action.payload === -1 && state.checkoutStep > 1) {
         return { ...state, checkoutStep: state.checkoutStep - 1 };
       }
       return { ...state, checkoutStep: action.payload };
@@ -52,6 +85,9 @@ export const topUpSlice = createSlice({
 });
 export const {
   setTopUpSimNumber,
+  setTopUpSimAmount,
+  resetTopUpSimAmount,
+  setOrderId,
   setUserInvoiceInfo,
   setUserPaymentInfo,
   setCheckoutStep,

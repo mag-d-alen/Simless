@@ -6,16 +6,15 @@ import { Navbar } from "./views/navbar/Navbar";
 import { FAQ } from "./views/faq/FAQ";
 import { Contact } from "./views/contact/Contact";
 import { Provider } from "react-redux";
-import { MainController } from "./redux/MainController";
-
-import { store } from "./redux/store";
 import { BalanceMain } from "./views/balance/BalanceMain";
+import { PackageController } from "./views/PackagesController";
+import { store } from "./redux/store";
+
 
 function App() {
-
   return (
     <Provider store={store}>
-      <MainController />
+      <PackageController/>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>

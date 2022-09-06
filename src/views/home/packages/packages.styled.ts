@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DealCardContainer = styled.div`
+export const PackageCardContainer = styled.div`
   margin: 1rem;
   background-color: white;
   width: 15rem;
@@ -10,12 +10,12 @@ export const DealCardContainer = styled.div`
     filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.5));
   }
 `;
-export const DealsContainer = styled.div`
+export const PackagesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 `;
-export const DealCardTitle = styled.div`
+export const PackageCardTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,28 +25,28 @@ export const DealCardTitle = styled.div`
   padding: 0.5rem 0;
   gap: 0.5rem;
 `;
-export const DealCardBody = styled.div`
+export const PackageCardBody = styled.div`
   padding: 0.5rem;
   display: flex;
 `;
-export const DealCardGigaOption = styled.div`
+export const PackageCardGigaOption = styled.div`
   width: 30%;
   padding: 0.5rem;
   display: flex;
   align-items: center;
 `;
-export const DealCardCountries = styled.div`
+export const PackageCardCountries = styled.div`
   display: flex;
   height: 3rem;
   padding: 0.5rem;
   overflow: auto;
 `;
-export const DealCardPrice = styled.div`
+export const PackageCardPrice = styled.div`
   text-align: center;
   padding: 0.5rem;
   font-weight: 600;
   font-size: 1.2rem;
 `;
-export const DealCardButtons = styled.div`
+export const PackageCardButtons = styled.div`
   display: flex;
 `;

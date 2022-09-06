@@ -3,7 +3,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-const apiRoute = require("./routes/api");
+const apiRoute = require("./backend/routes/api");
 
 const app = express();
 app.use(cors());
@@ -26,38 +26,6 @@ app.use("/api", apiRoute);
 //     console.log("Ready to Send");
 //   }
 // });
-
-app.get("/purchase", async (req, res) => {
-  try {
-    const res = await axios.get(`${uri}`);
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-app.get("/charge:num", async (req, res) => {
-  const num = req.params.num;
-  const amount = req.query.amount;
-  try {
-    const response = await axios.post(`${uri}sbalance`);
-    console.log(response.data);
-    res.send(response.data);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-app.get("/topup:num&sum", async (req, res) => {
-  const { num, sum } = req.params;
-  try {
-    const response = await axios.get(`${uri}gbalance&onum=${num}`);
-    console.log(res.data);
-    res.send(response.data);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
 // app.post("/contact", async (req, res) => {
 //   const { name, email, message } = req.body.params;

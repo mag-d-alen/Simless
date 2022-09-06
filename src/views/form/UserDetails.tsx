@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { InvoiceType } from "../../data/types";
 import {
   setUserInvoiceInfo,
   setUserPaymentInfo,
@@ -12,11 +13,11 @@ export const UserDetails: React.FC = () => {
   const dispatch = useDispatch();
   const [showPaymentForm, setShowPaymentForm] = useState(false);
 
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: InvoiceType) => {
     const infoValues = Object.entries(values).reduce(
       (acc, curr) =>
         curr.includes("oneForm") ? acc : { ...acc, [curr[0]]: curr[1] },
-      {}
+      {} as InvoiceType
     );
     if (values.oneForm) {
       dispatch(setUserInvoiceInfo(infoValues));

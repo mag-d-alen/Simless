@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { isConditionalExpression } from "typescript";
-const initialState = {
+import { InitialSimPurchaseState } from "../data/types";
+const initialState:InitialSimPurchaseState = {
   chosenDeal: [],
 };
 
@@ -10,10 +11,10 @@ export const simPurchaseSlice = createSlice({
   name: "simPurchase",
   initialState,
   reducers: {
-    setChosenDeal: (state: any, action: PayloadAction<any>) => {
+    setChosenDeal: (state: InitialSimPurchaseState, action: PayloadAction<string>) => {
       return { ...state, chosenDeal: [...state.chosenDeal, action.payload] };
     },
-    resetChosenDeal: (state: any, action: PayloadAction<any>) => {
+    resetChosenDeal: (state: InitialSimPurchaseState, action: PayloadAction<string>) => {
       return { ...state, chosenDeal: initialState.chosenDeal };
     },
   },

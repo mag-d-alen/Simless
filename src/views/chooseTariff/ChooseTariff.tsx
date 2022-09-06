@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSelectedCountries } from "../../redux/InfoSlice";
 import { countriesList } from "../../data/data";
 import {
@@ -12,6 +12,7 @@ import { Button } from "../general.styled";
 export const ChooseTariff = () => {
   const [countries, setCountries] = useState<any>([]);
   const dispatch = useDispatch();
+
   return (
     <>
       <ChooseTariffContainer>
@@ -28,7 +29,6 @@ export const ChooseTariff = () => {
           submit
         </Button>
       </ChooseTariffContainer>
-
     </>
   );
 };

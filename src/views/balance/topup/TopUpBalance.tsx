@@ -5,7 +5,11 @@ import { TopUpSchema } from "../../form/form data";
 import { FormEntry } from "../../form/FormEntry";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../../general.styled";
-import { setCheckoutStep, setTopUpSimNumber } from "../../../redux/TopUpSlice";
+import {
+  setCheckoutStep,
+  setTopUpSimAmount,
+  setTopUpSimNumber,
+} from "../../../redux/TopUpSlice";
 import { StepProgress } from "./StepProgress";
 import { GoBack } from "./GoBack";
 
@@ -13,24 +17,28 @@ export const TopUpBalance: React.FC = () => {
   const dispatch = useDispatch();
   const checkoutStep = useSelector((s: any) => s.topUp.checkoutStep);
 
-  return (<>
+  return (
+    <>
       <StepProgress />
       {checkoutStep > 1 && <GoBack />}
-    <Formik
-      initialValues={{ sim: "", amount: "" }}
-      validationSchema={TopUpSchema}
-      onSubmit={(values) => {
-        dispatch(setTopUpSimNumber(values.sim));
-        dispatch(setCheckoutStep(2));
-      }}>
-      {({ errors, touched }) => (
-        <Form>
-          <FormEntry inputField="sim" errors={errors} touched={touched} />
-          <FormEntry inputField="amount" errors={errors} touched={touched} />
-          {checkoutStep === 1 && <Button type="submit">Go to Invoice </Button>}
-        </Form>
-      )}
-    </Formik>
+      <Formik
+        initialValues={{ sim: "", amount: "" }}
+        validationSchema={TopUpSchema}
+        onSubmit={(values) => {
+          dispatch(setTopUpSimNumber(values.sim));
+          dispatch(setTopUpSimAmount(values.amount));
+          dispatch(setCheckoutStep(2));
+        }}>
+        {({ errors, touched }) => (
+          <Form>
+            <FormEntry inputField="sim" errors={errors} touched={touched} />
+            <FormEntry inputField="amount" errors={errors} touched={touched} />
+            {checkoutStep === 1 && (
+              <Button type="submit">Go to Invoice </Button>
+            )}
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

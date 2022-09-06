@@ -67,15 +67,17 @@ export const InvoiceTitle = styled.h3`
   text-transform: uppercase;
 `;
 
-export const FormTextArea = styled(Field)`
+export const FormStyledTextArea = styled.textarea`
   display: flex;
+  text-overflow: clip;
   flex: 1;
-  align-items: center;
   background-color: aliceblue;
   border: none;
   border-radius: 0.3rem;
   margin: 0.5rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
   width: 20rem;
-  height: 20rem;
+  height: 5rem;
+  overflow: auto;
+  font-family: "Lato";
 `;

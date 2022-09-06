@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useGetSimBalanceQuery } from "../../redux/api/simQuery";
+import { Loader } from "../Loader";
 import { CheckBalance } from "./checkBalance/CheckBalance";
 import { DisplayBalance } from "./checkBalance/DisplayBalance";
 import { ToggleAccountActions } from "./toggle/ToggleAccountActions";
@@ -7,7 +10,10 @@ import { TopUpMain } from "./topup/TopUpMain";
 
 export const BalanceMain: React.FC = () => {
   const [isCheckOn, setIsCheckOn] = useState(true);
-
+  const userSimNumber = useSelector((s: any) => s.userInfo.userSimNumber);
+  const { data, isLoading, isSuccess, isError, error } = useGetSimBalanceQuery(
+    userSimNumber
+  );
   const handleToggle = () => {
     setIsCheckOn(!isCheckOn);
   };
@@ -19,7 +25,11 @@ export const BalanceMain: React.FC = () => {
       ) : (
         <>
           <CheckBalance />
-          <DisplayBalance />
+          {isLoading && <Loader />}
+          {userSimNumber && isSuccess ? (
+            <DisplayBalance data={data} isLoading={isLoading} />
+          ) : null}
+          {isError && <div>sorry, cant fetch</div>}
         </>
       )}
     </BalanceMainContainer>

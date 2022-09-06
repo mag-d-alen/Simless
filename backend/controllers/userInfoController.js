@@ -4,15 +4,14 @@ const uname = process.env.UNAME;
 const upass = process.env.UPASS;
 const uri = process.env.URI;
 
-const chargeSimController = async (req, res) => {
+const topUpSimController = async (req, res) => {
   const num = req.params.num;
-  const amount = req.query.amount;
+  const {amount, orderId} = req.body.amount;
   try {
     const response = await axios.post(
-      `${uri}uname=${uname}&upass=${upass}&plain=1&command=sbalance`
+      `${uri}uname=${uname}&upass=${upass}&plain=1&command=sbalance&onum=${num}&amount=${amount}&curr=USD&orderid=${orderId}`
     );
-    console.log(response.data);
-    return res.send(response.data);
+    return res.send(response.data.client);
   } catch (error) {
     console.log(error);
   }
@@ -28,11 +27,10 @@ const getSimBalanceController = async (req, res) => {
     );
     return res.send(response.data.records.card);
   } catch (error) {
-    console.log(error);
+    res.send(error);
   }
 };
 const getTariffsController = async (req, res) => {
-  const countries = req.params.countries;
   try {
     const response = await axios.get(
       `${uri}uname=${uname}&upass=${upass}&plain=1&command=getrates`,
@@ -40,13 +38,13 @@ const getTariffsController = async (req, res) => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       }
     );
-    return res.send(response.data.getrates);
+    return res.send(response.data.getrates.service);
   } catch (error) {
-    console.log(error);
+    res.json(error);
   }
 };
 module.exports = {
   getSimBalanceController,
   getTariffsController,
-  chargeSimController,
+  topUpSimController,
 };
