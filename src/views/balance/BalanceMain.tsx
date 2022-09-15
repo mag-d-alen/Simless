@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { useGetSimBalanceQuery } from "../../redux/api/simQuery";
+import { useGetSimBalanceQuery } from "../../redux/api/simApi";
 import { Loader } from "../Loader";
 import { CheckBalance } from "./checkBalance/CheckBalance";
 import { DisplayBalance } from "./checkBalance/DisplayBalance";
@@ -29,7 +29,6 @@ export const BalanceMain: React.FC = () => {
           {userSimNumber && isSuccess ? (
             <DisplayBalance data={data} isLoading={isLoading} />
           ) : null}
-          {isError && <div>sorry, cant fetch</div>}
         </>
       )}
     </BalanceMainContainer>

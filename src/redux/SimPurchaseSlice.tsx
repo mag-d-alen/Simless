@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { isConditionalExpression } from "typescript";
 import { InitialSimPurchaseState } from "../data/types";
 const initialState:InitialSimPurchaseState = {
   chosenDeal: [],

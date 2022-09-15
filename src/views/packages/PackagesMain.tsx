@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ChooseTariff } from "../chooseTariff/ChooseTariff";
+import { ChoosePackage } from "../choosePackage/ChoosePackage";
 import { Button } from "../general.styled";
 import { Packages } from "../home/packages/Packages";
 import { Typography } from "../home/home.styled";
-import { useGetPackagesQuery } from "../../redux/api/simQuery";
-import { setRatesService } from "../../redux/InfoSlice";
 
-export const TariffsMain: React.FC = () => {
+export const PackagesMain: React.FC = () => {
   const [showDeals, setShowDeals] = useState(false);
   const { selectedCountries } = useSelector((s: any) => s.info);
 
@@ -15,15 +13,15 @@ export const TariffsMain: React.FC = () => {
   return (
     <>
       <Typography>Choose a deal that suits your needs</Typography>
-      <ChooseTariff />
-      {selectedCountries && (
+      <ChoosePackage />
+      {selectedCountries.length ? (
         <>
           <Typography>Your countries:</Typography>
           {selectedCountries.map((c: { value: string; label: string }) => (
             <div key={c.value}>{c.label}</div>
           ))}
         </>
-      )}
+      ) : null}
       <Button
         onClick={() => {
           setShowDeals(!showDeals);

@@ -13,6 +13,7 @@ export const FormField: React.FC<{ name: string; type: any }> = ({
           type="text"
           {...field}
           placeholder={splitAndCapitalize(name)}
+       
         />
       )}
     </Field>

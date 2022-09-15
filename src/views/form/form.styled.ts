@@ -39,6 +39,7 @@ export const InputField = styled(Field)`
   border-radius: 0.3rem;
   margin: 0.5rem;
   padding: 0.3rem;
+  
 `;
 export const FormFieldContainer = styled.div`
   display: flex;

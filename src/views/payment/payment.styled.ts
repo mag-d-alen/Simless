@@ -13,12 +13,14 @@ export const DialogContainer = styled.div<{ show: boolean }>`
   align-items: center;
   flex-direction: column;
 `;
-export const DialogBodyContaier = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+export const DialogBodyContainer = styled.div`
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         background-color: white;
+         border-radius: 0.3rem;
+       `;
 export const IFrame = styled.iframe`
   background-color: white;
   border: none;

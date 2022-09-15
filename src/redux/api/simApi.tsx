@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { TopUpResponseType } from "../../data/types";
 import { url } from "../../data/data";
-import { SimDataType, TopUpResponseType } from "../../data/types";
 
 export const simApi = createApi({
   tagTypes: ["Packages"],

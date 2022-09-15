@@ -1,7 +1,6 @@
 import React from "react";
 import { NavbarContainer, NavLink } from "./navbar.styled";
 
-
 export const Navbar = () => {
   return (
     <NavbarContainer>

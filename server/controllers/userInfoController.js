@@ -4,6 +4,8 @@ const uname = process.env.UNAME;
 const upass = process.env.UPASS;
 const uri = process.env.URI;
 
+
+// async (req: express.Request, res: express.Response): Promise<void>
 const topUpSimController = async (req, res) => {
   const num = req.params.num;
   const {amount, orderId} = req.body.amount;

@@ -3,20 +3,18 @@ import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { setSelectedCountries } from "../../redux/InfoSlice";
 import { countriesList } from "../../data/data";
-import {
-  ChooseTariffContainer,
-  TariffSelectContainer,
-} from "./chooseTariffs.styled";
-import { Button } from "../general.styled";
 
-export const ChooseTariff = () => {
+import { Button } from "../general.styled";
+import { ChoosePackageContainer, PackageSelectContainer } from "./choosePackages.styled";
+
+export const ChoosePackage= () => {
   const [countries, setCountries] = useState<any>([]);
   const dispatch = useDispatch();
 
   return (
     <>
-      <ChooseTariffContainer>
-        <TariffSelectContainer>
+      <ChoosePackageContainer>
+        <PackageSelectContainer>
           <Select
             options={countriesList}
             isMulti={true}
@@ -24,11 +22,11 @@ export const ChooseTariff = () => {
               setCountries(selected);
             }}
           />
-        </TariffSelectContainer>
+        </PackageSelectContainer>
         <Button onClick={() => dispatch(setSelectedCountries(countries))}>
           submit
         </Button>
-      </ChooseTariffContainer>
+      </ChoosePackageContainer>
     </>
   );
 };

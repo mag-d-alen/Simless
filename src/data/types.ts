@@ -10,10 +10,14 @@ export type InitialTopuUpState = {
 export type InvoiceType = {
   first_Name: string;
   last_Name: string;
+  company: string;
   sim: string;
   email: string;
   phone?: string;
   additionalPhone?: string;
+  street: string;
+  city: string;
+  country: string;
   oneForm?: boolean;
 };
 export type InitialInfoStateType = {
@@ -21,20 +25,24 @@ export type InitialInfoStateType = {
   ratesService?: RatesService;
   loading?: boolean;
 };
+export type InitialContactStateType = {
+  data: ContactFormInputType;
+  loading?: boolean;
+  error?: string;
+};
 export type InitialSimPurchaseState = {
-  chosenDeal:string[] 
-}
+  chosenDeal: string[];
+};
 export type InitialUserInfoType = {
-  userSimNumber: string,
-  simData: SimDataType
-}
+  userSimNumber: string;
+  simData: SimDataType;
+};
 export type TopUpResponseType = {
-  balance: number,
-  amount: string,
-    inum: string,
-    onum: string,
-    orderid: number,
-
+  balance: number;
+  amount: string;
+  inum: string;
+  onum: string;
+  orderid: number;
 };
 export type SelectedCountryType = MultiValue<{ value: string; label: string }>;
 export type AccordionItemType = { title: string; content: string }[];
@@ -64,4 +72,22 @@ export type SimDataType = {
   onum: string;
   prepayed: string;
   tsimid: string;
+};
+export type ContactFormInputType = {
+  name: string;
+  email: string;
+  message: string;
+  phone: string;
+};
+export type CardPaymentResponseType = {
+  data: any;
+  loading: boolean;
+  error?: string;
+};
+export type CardPaymentInputType = {
+  name: string;
+  amount: string;
+  cardNumber: number;
+  expiry_Date: string;
+  cvc: number;
 };

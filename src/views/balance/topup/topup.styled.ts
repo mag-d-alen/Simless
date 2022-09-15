@@ -12,6 +12,7 @@ export const BalanceMainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-top: 2rem;
 `;
 
 export const ProgressContainer = styled.div`

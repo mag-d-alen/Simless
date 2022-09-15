@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ChooseTariffContainer = styled.div`
+export const ChoosePackageContainer = styled.div`
   display: flex;
   padding: 2rem;
   gap: 1rem;
@@ -9,7 +9,7 @@ export const ChooseTariffContainer = styled.div`
   width: 100%;
 `;
 
-export const TariffSelectContainer = styled.div`
+export const PackageSelectContainer = styled.div`
   display: inline-block;
   flex: 1;
 `;

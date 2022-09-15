@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { useGetPackagesQuery } from '../redux/api/simQuery';
+import { useGetPackagesQuery } from '../redux/api/simApi';
 import { setRatesService } from '../redux/InfoSlice';
 
 export const PackageController = () => {

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialUserInfoType, SimDataType } from "../data/types";
+import { InitialUserInfoType, SimDataType } from "../../../data/types";
 const initialState:InitialUserInfoType = {
   userSimNumber: "",
   simData: {

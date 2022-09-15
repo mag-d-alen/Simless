@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { InvoiceType } from "../../data/types";
+import { InvoiceType } from "../../../../data/types";
 import {
   setUserInvoiceInfo,
   setUserPaymentInfo,

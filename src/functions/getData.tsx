@@ -1,5 +1,5 @@
 import axios from "axios";
-import { url } from "../data/data";
+import { url } from "../../../data/data";
 
 export const getData = async ({
   route,
