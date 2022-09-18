@@ -10,27 +10,28 @@ export const CardMain = () => {
   const { topUpSimNumber, topUpAmount, orderId, payment } = useSelector(
     (s: any) => s.topUp
   );
-  const [makePayment] = useMakeCardPaymentMutation();
+  const [makePayment, loading] = useMakeCardPaymentMutation();
   const dispatch = useDispatch();
   const [topUpSim] = useTopUpSimMutation();
 
   const handleMakePayment = ({ expiry_Date, card_Number, cvv }) => {
-    const result = makePayment({
+    makePayment({
       name: `${payment.first_Name} ${payment.last_Name}`,
       amount: topUpAmount,
       cardNumber: card_Number,
       expiry_Date: expiry_Date,
-   cvv:cvv
-    });
-    if (result) {
-      topUpSim({
-        num: topUpSimNumber,
-        amount: topUpAmount,
-        orderId: orderId,
-      });
-      dispatch(setCheckoutStep(4));
-      dispatch(setOrderId(1));
-    }
+      cvv: cvv,
+    })
+      .unwrap()
+      .then((fulfilled) =>
+        topUpSim({
+          num: topUpSimNumber,
+          amount: topUpAmount,
+          orderId: orderId,
+        }).catch((rejected) => console.error(rejected))
+      );
+    dispatch(setCheckoutStep(4));
+    dispatch(setOrderId(1));
   };
   return (
     <CardMainContainer>

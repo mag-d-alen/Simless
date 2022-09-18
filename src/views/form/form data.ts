@@ -6,7 +6,8 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 const amountRegExp = /^[0-9]*$/;
 const numsAndLettersRegExp = /^[aA-zZ0-9]+$/;
 const letterOnlyRegExp = /^[a-zA-Z\s]*$/;
-const dateRegExp = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+const dateRegExp = /^(0[1-9]|1[0-2])\/?([2-9]{2})$/;
+
 
 export const initialData = {
   first_Name: "",
@@ -100,32 +101,32 @@ export const ContactSchema = Yup.object().shape({
 });
 
 export const CardPaymentSchema = Yup.object().shape({
-         card_Number: Yup.string()
-           .min(16, "enter valid card number")
-           .max(16, "enter valid card number")
-           .matches(amountRegExp, "enter valid card number")
-           .required("required"),
-         expiry_Date: Yup.string()
-           .required("Please enter the card Expiry Date")
-           .matches(dateRegExp, "invalid date. Ex: 12/25")
-           .min(5, "enter valid date format, Ex: 12/25")
-           .max(5, "enter valid date format,Ex: 12/25 "),
-         // .test("", "the card expired", (val, props) => {
-         //   const expiryDate = moment(val).format("MM/YY");
-         //   console.log(expiryDate);
-         //   const enteredDate = moment(props.parent.enteredDate).format("MM/YY");
-         //   const tmpExpiryDate = moment(enteredDate).add(1, "months");
-
-         //   if (!tmpExpiryDate.isAfter(expiryDate)) {
-         //     console.log(expiryDate, tmpExpiryDate);
-         //     return true;
-         //   }
-         // }),
-
-         cvv: Yup.string()
-           .matches(amountRegExp, "Invalid CVV format")
-           .min(3)
-           .max(3)
-           .required("Required"),
+  card_Number: Yup.string()
+    .min(16, "enter valid card number")
+    .max(16, "enter valid card number")
+    .matches(amountRegExp, "enter valid card number")
+    .required("required"),
+  expiry_Date: Yup.string()
+    .required("Please enter the card Expiry Date")
+    .matches(dateRegExp, "invalid date. Ex: 12/25")
+    .min(4, "enter valid date format, Ex: 12/25")
+    .max(4, "enter valid date format,Ex: 12/25 "),
+  // .test("", "the card expired", (val, props) => {
+  //   const expiryDate = moment(val).format("MM/YY");
     
-       });
+  //   console.log(expiryDate);
+  //   const enteredDate = moment(props.parent.enteredDate).format("MM/YY");
+  //   const tmpExpiryDate = moment(enteredDate).add(1, "months");
+
+    // if (!tmpExpiryDate.isAfter(expiryDate)) {
+    //   console.log(expiryDate, tmpExpiryDate);
+    //   return true;
+    // }
+ // }),
+
+  cvv: Yup.string()
+    .matches(amountRegExp, "Invalid CVV format")
+    .min(3)
+    .max(3)
+    .required("Required"),
+});

@@ -17,8 +17,8 @@ export const CardForm: React.FC<{
   return (
     <Formik
       initialValues={{
-        card_Number: "0000 0000 0000 0000",
-        expiry_Date: "MM/YY",
+        card_Number: "0000000000000000",
+        expiry_Date: "MMYY",
         cvv: "000",
         name: "",
       }}
