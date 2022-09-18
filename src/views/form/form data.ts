@@ -122,8 +122,8 @@ export const CardPaymentSchema = Yup.object().shape({
          //   }
          // }),
 
-         cvc: Yup.string()
-           .matches(amountRegExp, "Invalid CVC format")
+         cvv: Yup.string()
+           .matches(amountRegExp, "Invalid CVV format")
            .min(3)
            .max(3)
            .required("Required"),

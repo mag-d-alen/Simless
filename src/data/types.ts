@@ -89,5 +89,5 @@ export type CardPaymentInputType = {
   amount: string;
   cardNumber: number;
   expiry_Date: string;
-  cvc: number;
+  cvv: number;
 };

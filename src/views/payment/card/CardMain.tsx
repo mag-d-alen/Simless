@@ -14,13 +14,13 @@ export const CardMain = () => {
   const dispatch = useDispatch();
   const [topUpSim] = useTopUpSimMutation();
 
-  const handleMakePayment = ({ expiry_Date, card_Number, cvc }) => {
+  const handleMakePayment = ({ expiry_Date, card_Number, cvv }) => {
     const result = makePayment({
       name: `${payment.first_Name} ${payment.last_Name}`,
       amount: topUpAmount,
       cardNumber: card_Number,
       expiry_Date: expiry_Date,
-      cvc: cvc,
+   cvv:cvv
     });
     if (result) {
       topUpSim({

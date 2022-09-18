@@ -170,7 +170,7 @@ export const CardSignature = styled.div<{ flipped: boolean }>`
   top: 35%;
   width: 75%;
 `;
-export const CardCVC = styled.div<{ flipped: boolean }>`
+export const CardCVV = styled.div<{ flipped: boolean }>`
   transform: ${({ flipped }) =>
     flipped ? "rotateY(180deg)" : "rotateY(-180deg)"};
   font-size: ${({ flipped }) => (flipped ? "14px" : "11.9px")};

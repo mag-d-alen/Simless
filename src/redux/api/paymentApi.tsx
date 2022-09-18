@@ -13,10 +13,10 @@ export const paymentApi = createApi({
       CardPaymentResponseType,
       CardPaymentInputType
     >({
-      query: ({ name, amount, cardNumber, expiry_Date, cvc }) => ({
+      query: ({ name, amount, cardNumber, expiry_Date, cvv }) => ({
         url: "cardPayment",
         method: "POST",
-        body: { name, amount, cardNumber, expiry_Date, cvc },
+        body: { name, amount, cardNumber, expiry_Date, cvv },
       }),
     }),
   }),
