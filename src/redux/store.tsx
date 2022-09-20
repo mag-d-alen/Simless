@@ -7,11 +7,14 @@ import { simApi } from "./api/simApi";
 import { contactApi } from "./api/contactApi";
 import { contactSlice } from "./ContactSlice";
 import { paymentApi } from "./api/paymentApi";
+import { invoiceApi } from "./api/invoiceApi";
 
 const rootReducer = combineReducers({
   [simApi.reducerPath]: simApi.reducer,
   [contactApi.reducerPath]: contactApi.reducer,
   [paymentApi.reducerPath]: paymentApi.reducer,
+  [invoiceApi.reducerPath]: invoiceApi.reducer,
+
   info: infoSlice.reducer,
   userInfo: userInfoSlice.reducer,
   simPurchase: simPurchaseSlice.reducer,
@@ -25,7 +28,8 @@ export const store = configureStore({
     getDefaultMiddleware()
       .concat(simApi.middleware)
       .concat(contactApi.middleware)
-      .concat(paymentApi.middleware),
+      .concat(paymentApi.middleware)
+      .concat(invoiceApi.middleware),
 });
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -201,6 +201,7 @@ export const faqData = [
 export const url = "http://localhost:8000/api";
 export const contactUrl = "http://localhost:8000/contact";
 export const cardPaymentUri = "http://localhost:8000/payment";
+export const invoiceUrl = "http://localhost:8000/createInvoice";
 export const packages = [
   {
     name: "package1",
