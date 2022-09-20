@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ChoosePackage } from "../choosePackage/ChoosePackage";
-import { Button } from "../general.styled";
-import { Packages } from "../home/packages/Packages";
-import { Typography } from "../home/home.styled";
+import { ChoosePackage } from "../ChoosePackage";
+import { Button } from "../../general.styled";
+import { Packages } from "./Packages";
+import { Typography } from "../../home/home.styled";
 
 export const PackagesMain: React.FC = () => {
   const [showDeals, setShowDeals] = useState(false);
   const { selectedCountries } = useSelector((s: any) => s.info);
-
   const { ratesService } = useSelector((s: any) => s.info);
   return (
     <>
@@ -36,7 +35,6 @@ export const PackagesMain: React.FC = () => {
           ))}
         </>
       ) : null}
-
       <Packages />
     </>
   );

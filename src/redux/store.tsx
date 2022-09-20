@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   userInfo: userInfoSlice.reducer,
   simPurchase: simPurchaseSlice.reducer,
   topUp: topUpSlice.reducer,
-  constact: contactSlice.reducer,
+  contactUs: contactSlice.reducer,
 });
 
 export const store = configureStore({

@@ -28,6 +28,7 @@ const initialState: InitialTopuUpState = {
   checkoutStep: 1,
   topUpAmount: "",
   orderId: 187,
+  paymentSuccess: null,
 };
 
 export const topUpSlice = createSlice({
@@ -88,6 +89,12 @@ export const topUpSlice = createSlice({
       }
       return { ...state, checkoutStep: action.payload };
     },
+    setPaymentSuccess: (
+      state: InitialTopuUpState,
+      action: PayloadAction<boolean>
+    ) => {
+      return { ...state, paymentSuccess: action.payload };
+    },
   },
 });
 export const {
@@ -100,5 +107,6 @@ export const {
   setCheckoutStep,
   resetUserInvoiceInfo,
   resetUserPaymentInfo,
+  setPaymentSuccess,
 } = topUpSlice.actions;
 export default topUpSlice.reducer;

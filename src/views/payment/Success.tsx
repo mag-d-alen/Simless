@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { resetChosenDeal } from "../../../redux/SimPurchaseSlice";
+import { resetChosenDeal } from "../../redux/SimPurchaseSlice";
 import {
   setCheckoutStep,
   resetUserInvoiceInfo,
   resetUserPaymentInfo,
-} from "../../../redux/TopUpSlice";
+} from "../../redux/TopUpSlice";
 
-import { DialogContainer } from "../../payment/payment.styled";
-import { SuccessIcon } from "../../payment/SuccessIcon";
-import { SuccessContainer } from "./topup.styled";
+import { DialogContainer } from "./payment.styled";
+import { SuccessIcon } from "./SuccessIcon";
+import { SuccessContainer } from "../balance/topup/topup.styled";
 
 export const Success = () => {
   const [isOpen, setIsOpen] = useState(true);

@@ -1,21 +1,19 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { TopUpResponseType } from "../../data/types";
+import { SimDataType, TopUpResponseType } from "../../data/types";
 import { url } from "../../data/data";
 
 export const simApi = createApi({
-  tagTypes: ["Packages"],
-  reducerPath: "api",
+  reducerPath: "simApi",
   baseQuery: fetchBaseQuery({ baseUrl: url }),
   endpoints: (builder) => ({
-    getSimBalance: builder.query({
-      query: (name: string) => `balance${name}`,
+
+    getSimBalance: builder.query<any, string >({
+      query: (sim) =>  `balance${sim}`,
     }),
 
     getPackages: builder.query({
       query: () => `tariffs`,
-      providesTags: ["Packages"],
     }),
-
     topUpSim: builder.mutation<
       TopUpResponseType,
       { num: string; amount: string; orderId: number }
@@ -30,6 +28,6 @@ export const simApi = createApi({
 });
 export const {
   useGetSimBalanceQuery,
-  useGetPackagesQuery,
+   useGetPackagesQuery,
   useTopUpSimMutation,
 } = simApi;

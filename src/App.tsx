@@ -6,9 +6,9 @@ import { Navbar } from "./views/navbar/Navbar";
 import { FAQ } from "./views/faq/FAQ";
 import { ContactMain } from "./views/contact/ContactMain";
 import { Provider } from "react-redux";
-import { BalanceMain } from "./views/balance/BalanceMain";
 import { PackageController } from "./views/PackagesController";
 import { store } from "./redux/store";
+import { BalanceMain } from "./views/balance/checkBalance/BalanceMain";
 
 
 function App() {

@@ -2,7 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useMakeCardPaymentMutation } from "../../../redux/api/paymentApi";
 import { useTopUpSimMutation } from "../../../redux/api/simApi";
-import { setCheckoutStep, setOrderId } from "../../../redux/TopUpSlice";
+import { store } from "../../../redux/store";
+import {
+  setCheckoutStep,
+  setOrderId,
+  setPaymentSuccess,
+} from "../../../redux/TopUpSlice";
 import { CardMainContainer } from "./card.styled";
 import { CardForm } from "./CardForm";
 
@@ -10,7 +15,7 @@ export const CardMain = () => {
   const { topUpSimNumber, topUpAmount, orderId, payment } = useSelector(
     (s: any) => s.topUp
   );
-  const [makePayment, loading] = useMakeCardPaymentMutation();
+  const [makePayment] = useMakeCardPaymentMutation();
   const dispatch = useDispatch();
   const [topUpSim] = useTopUpSimMutation();
 
@@ -23,13 +28,21 @@ export const CardMain = () => {
       cvv: cvv,
     })
       .unwrap()
-      .then((fulfilled) =>
+      .then((fulfilled) => {
         topUpSim({
           num: topUpSimNumber,
           amount: topUpAmount,
           orderId: orderId,
-        }).catch((rejected) => console.error(rejected))
-      );
+        });
+      })
+      .catch((rejected) => {
+        console.error(rejected);
+      });
+
+    //  makePayment.requestStatus === 200
+    //      ? dispatch(setPaymentSuccess(true))
+    console.log(store);
+    dispatch(setPaymentSuccess(false));
     dispatch(setCheckoutStep(4));
     dispatch(setOrderId(1));
   };

@@ -6,14 +6,12 @@ import { Button } from "../../general.styled";
 import { CardImageContainer } from "./card.styled";
 import { useSelector } from "react-redux";
 import { Card } from "./Card";
-import { valueContainerCSS } from "react-select/dist/declarations/src/components/containers";
 
 export const CardForm: React.FC<{
   handleMakePayment: ({ card_Number, expiry_Date, cvv }) => void;
 }> = ({ handleMakePayment }) => {
   const [flipped, setFlipped] = useState(false);
   const { first_Name, last_Name } = useSelector((s: any) => s.topUp).payment;
-  const ref = useRef();
   return (
     <Formik
       initialValues={{

@@ -6,6 +6,7 @@ export type InitialTopuUpState = {
   checkoutStep: number;
   topUpAmount: string;
   orderId: number;
+  paymentSuccess: boolean | null;
 };
 export type InvoiceType = {
   first_Name: string;
@@ -66,11 +67,11 @@ export type RatesService = {
 export type SimDataType = {
   aserviceid: string;
   balance: string;
-  blocked: string;
+  blocked: boolean;
   curr: string;
   inum: string;
   onum: string;
-  prepayed: string;
+  prepayed: boolean;
   tsimid: string;
 };
 export type ContactFormInputType = {

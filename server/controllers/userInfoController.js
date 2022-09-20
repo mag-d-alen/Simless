@@ -4,11 +4,10 @@ const uname = process.env.UNAME;
 const upass = process.env.UPASS;
 const uri = process.env.URI;
 
-
 // async (req: express.Request, res: express.Response): Promise<void>
 const topUpSimController = async (req, res) => {
   const num = req.params.num;
-  const {amount, orderId} = req.body.amount;
+  const { amount, orderId } = req.body.amount;
   try {
     const response = await axios.post(
       `${uri}uname=${uname}&upass=${upass}&plain=1&command=sbalance&onum=${num}&amount=${amount}&curr=USD&orderid=${orderId}`
@@ -35,10 +34,7 @@ const getSimBalanceController = async (req, res) => {
 const getTariffsController = async (req, res) => {
   try {
     const response = await axios.get(
-      `${uri}uname=${uname}&upass=${upass}&plain=1&command=getrates`,
-      {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      }
+      `${uri}uname=${uname}&upass=${upass}&plain=1&command=getrates`
     );
     return res.send(response.data.getrates.service);
   } catch (error) {
