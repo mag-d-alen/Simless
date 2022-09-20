@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useMakeCardPaymentMutation } from "../../../redux/api/paymentApi";
 import { useTopUpSimMutation } from "../../../redux/api/simApi";
-import { store } from "../../../redux/store";
 import {
   setCheckoutStep,
   setOrderId,
@@ -15,9 +14,10 @@ export const CardMain = () => {
   const { topUpSimNumber, topUpAmount, orderId, payment } = useSelector(
     (s: any) => s.topUp
   );
-  const [makePayment] = useMakeCardPaymentMutation();
+  const [makePayment, isLoading] = useMakeCardPaymentMutation();
   const dispatch = useDispatch();
   const [topUpSim] = useTopUpSimMutation();
+  const [paymentCompleted, setPaymentCompleted] = useState<any>(null);
 
   const handleMakePayment = ({ expiry_Date, card_Number, cvv }) => {
     makePayment({
@@ -29,22 +29,24 @@ export const CardMain = () => {
     })
       .unwrap()
       .then((fulfilled) => {
-        topUpSim({
-          num: topUpSimNumber,
-          amount: topUpAmount,
-          orderId: orderId,
-        });
+        if (fulfilled) {
+          topUpSim({
+            num: topUpSimNumber,
+            amount: topUpAmount,
+            orderId: orderId,
+          });
+          dispatch(setPaymentSuccess(true));
+          dispatch(setCheckoutStep(4));
+          dispatch(setOrderId(1));
+        } else {
+          dispatch(setPaymentSuccess(false));
+          dispatch(setCheckoutStep(4));
+          dispatch(setOrderId(1));
+        }
       })
       .catch((rejected) => {
         console.error(rejected);
       });
-
-    //  makePayment.requestStatus === 200
-    //      ? dispatch(setPaymentSuccess(true))
-    console.log(store);
-    dispatch(setPaymentSuccess(false));
-    dispatch(setCheckoutStep(4));
-    dispatch(setOrderId(1));
   };
   return (
     <CardMainContainer>

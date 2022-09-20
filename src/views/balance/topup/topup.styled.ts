@@ -49,4 +49,5 @@ export const SuccessContainer = styled.div`
   color: white;
   height: 80%;
   width: 80%;
+  gap: 1.5rem;
 `;

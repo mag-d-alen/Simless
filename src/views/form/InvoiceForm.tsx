@@ -22,37 +22,37 @@ export const InvoiceForm: React.FC<{
         {({ errors, touched, values, setValues }) => (
           <Form>
             <FormEntry
-              inputField={"first_Name"}
+              inputfield={"first_Name"}
               errors={errors}
               touched={touched}
             />
             <FormEntry
-              inputField={"last_Name"}
+              inputfield={"last_Name"}
               errors={errors}
               touched={touched}
             />
             <FormEntry
-              inputField={"company"}
+              inputfield={"company"}
               errors={errors}
               touched={touched}
             />
-            <FormEntry inputField={"email"} errors={errors} touched={touched} />
-            <FormEntry inputField={"sim"} errors={errors} touched={touched} />
+            <FormEntry inputfield={"email"} errors={errors} touched={touched} />
+            <FormEntry inputfield={"sim"} errors={errors} touched={touched} />
             <FormEntry
-              inputField={"street"}
+              inputfield={"street"}
               errors={errors}
               touched={touched}
             />
-            <FormEntry inputField={"phone"} errors={errors} touched={touched} />
+            <FormEntry inputfield={"phone"} errors={errors} touched={touched} />
             <FormEntry
-              inputField={"additional_Phone"}
+              inputfield={"additional_Phone"}
               errors={errors}
               touched={touched}
             />
-            <FormEntry inputField={"city"} errors={errors} touched={touched} />
+            <FormEntry inputfield={"city"} errors={errors} touched={touched} />
 
             <FormEntry
-              inputField={"country"}
+              inputfield={"country"}
               errors={errors}
               touched={touched}
               values={values}
@@ -61,7 +61,7 @@ export const InvoiceForm: React.FC<{
 
             {oneForm ? (
               <InputLabel>
-                <Field type="checkbox" name="oneForm" inputField={"oneForm"} />
+                <Field type="checkbox" name="oneForm" inputfield={"oneForm"} />
                 Use the same address for payment
               </InputLabel>
             ) : null}

@@ -40,16 +40,15 @@ export const CardForm: React.FC<{
               setFlipped(e.target.name === "cvv");
             }}>
             <FormEntry
-              inputField={"card_Number"}
+              inputfield={"card_Number"}
               errors={errors}
               touched={touched}></FormEntry>
             <FormEntry
-              inputField={"expiry_Date"}
+              inputfield={"expiry_Date"}
               errors={errors}
               touched={touched}></FormEntry>
-
             <FormEntry
-              inputField={"cvv"}
+              inputfield={"cvv"}
               errors={errors}
               touched={touched}></FormEntry>
             <Button type={"submit"}>Pay</Button>

@@ -2,10 +2,8 @@ import { Field, FieldHookConfig, useField } from "formik";
 import React from "react";
 import {
   ErrorAlert,
-  FormEntryContainer,
-  FormFieldContainer,
   FormStyledTextArea,
-  InputContainer,
+
 } from "./form.styled";
 
 export const FormTextArea = (props: FieldHookConfig<any>) => {

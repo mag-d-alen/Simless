@@ -21,7 +21,7 @@ export const CheckBalance = () => {
         }}>
         {({ errors, touched }) => (
           <Form>
-            <FormEntry inputField="sim" errors={errors} touched={touched} />
+            <FormEntry inputfield="sim" errors={errors} touched={touched} />
             <Button type="submit">Check your balance</Button>
           </Form>
         )}

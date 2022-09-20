@@ -14,25 +14,25 @@ import Select from "react-select";
 import { countriesList } from "../../data/data";
 
 export const FormEntry: React.FC<{
-  inputField: string;
+  inputfield: string;
   errors: any;
   touched: any;
   values?: any;
   setValues?: any;
-}> = ({ inputField, errors, touched, values, setValues }) => {
+}> = ({ inputfield, errors, touched, values, setValues }) => {
   return (
     <FormEntryContainer>
       <InputContainer>
-        <InputLabel>{splitAndCapitalize(inputField)}</InputLabel>
+        <InputLabel>{splitAndCapitalize(inputfield)}</InputLabel>
         <FormFieldContainer>
-          {inputField === "sim" || inputField === "country" ? (
-            inputField === "sim" ? (
+          {inputfield === "sim" || inputfield === "country" ? (
+            inputfield === "sim" ? (
               <PhoneContainer>
-                +372 <FormField name={inputField} type={inputField} />{" "}
+                +372 <FormField name={inputfield} type={inputfield} />{" "}
               </PhoneContainer>
             ) : (
               <Select
-                name={inputField}
+                name={inputfield}
                 options={countriesList}
                 onChange={(selected) => {
                   setValues({ ...values, country: selected.label });
@@ -40,10 +40,10 @@ export const FormEntry: React.FC<{
               />
             )
           ) : (
-            <FormField name={inputField} type={inputField} />
+            <FormField name={inputfield} type={inputfield} />
           )}
-          {errors[inputField] && touched[inputField] ? (
-            <ErrorAlert>{errors[inputField]}</ErrorAlert>
+          {errors[inputfield] && touched[inputfield] ? (
+            <ErrorAlert>{errors[inputfield]}</ErrorAlert>
           ) : null}
         </FormFieldContainer>
       </InputContainer>

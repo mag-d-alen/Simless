@@ -10,7 +10,7 @@ export const paymentApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: cardPaymentUri }),
   endpoints: (builder) => ({
     makeCardPayment: builder.mutation<
-      CardPaymentResponseType,
+      any,
       CardPaymentInputType
     >({
       query: ({ name, amount, cardNumber, expiry_Date, cvv }) => ({

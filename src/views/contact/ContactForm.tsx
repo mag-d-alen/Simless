@@ -23,17 +23,17 @@ export const ContactForm: React.FC<{
              {({ errors, touched }) => (
                <Form>
                  <FormEntry
-                   inputField={"name"}
+                   inputfield={"name"}
                    errors={errors}
                    touched={touched}
                  />
                  <FormEntry
-                   inputField={"email"}
+                   inputfield={"email"}
                    errors={errors}
                    touched={touched}
                  />
                  <FormEntry
-                   inputField={"phone"}
+                   inputfield={"phone"}
                    errors={errors}
                    touched={touched}
                  />
