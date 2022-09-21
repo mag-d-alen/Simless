@@ -39,7 +39,7 @@ export const Card: React.FC<{
       <CardExpiryDate flipped={flipped}>
         {formatDate(expiry_Date)}
       </CardExpiryDate>
-      <CardIssuer flipped={flipped}>Visa</CardIssuer>
+      <CardIssuer flipped={flipped}></CardIssuer>
     </CardImage>
   );
 };

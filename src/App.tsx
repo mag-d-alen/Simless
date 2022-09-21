@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import { PackageController } from "./views/PackagesController";
 import { store } from "./redux/store";
 import { BalanceMain } from "./views/balance/checkBalance/BalanceMain";
-
+import moment from "moment";
+import { CardMain } from "./views/payment/card/CardMain";
 
 function App() {
   return (

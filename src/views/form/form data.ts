@@ -8,7 +8,6 @@ const numsAndLettersRegExp = /^[aA-zZ0-9]+$/;
 const letterOnlyRegExp = /^[a-zA-Z\s]*$/;
 const dateRegExp = /^(0[1-9]|1[0-2])\/?([2-9]{2})$/;
 
-
 export const initialData = {
   first_Name: "",
   last_Name: "",
@@ -99,7 +98,6 @@ export const ContactSchema = Yup.object().shape({
     .min(10, "Message is too short")
     .required("Required"),
 });
-
 export const CardPaymentSchema = Yup.object().shape({
   card_Number: Yup.string()
     .min(16, "enter valid card number")
@@ -108,22 +106,16 @@ export const CardPaymentSchema = Yup.object().shape({
     .required("required"),
   expiry_Date: Yup.string()
     .required("Please enter the card Expiry Date")
-    .matches(dateRegExp, "invalid date. Ex: 12/25")
-    .min(4, "enter valid date format, Ex: 12/25")
-    .max(4, "enter valid date format,Ex: 12/25 "),
-  // .test("", "the card expired", (val, props) => {
-  //   const expiryDate = moment(val).format("MM/YY");
-    
-  //   console.log(expiryDate);
-  //   const enteredDate = moment(props.parent.enteredDate).format("MM/YY");
-  //   const tmpExpiryDate = moment(enteredDate).add(1, "months");
-
-    // if (!tmpExpiryDate.isAfter(expiryDate)) {
-    //   console.log(expiryDate, tmpExpiryDate);
-    //   return true;
-    // }
- // }),
-
+    .matches(dateRegExp, "Please enter the card Expiry Date")
+    .min(4, "Please enter the card Expiry Date")
+    .max(4, "Please enter the card Expiry Date")
+    .test("the card expired", (val) => {
+      if (!parseInt(val) || val.length != 4) return;
+      else {
+        const cardDate = `${val.slice(2, 4)}${val.slice(0, 2)}`;
+        return cardDate > moment().format("YYMM");
+      }
+    }),
   cvv: Yup.string()
     .matches(amountRegExp, "Invalid CVV format")
     .min(3)

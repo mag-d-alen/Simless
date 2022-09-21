@@ -1,6 +1,6 @@
-const {contactController} = require("../controllers/contactController");
+const { contactController } = require("../controllers/contactController");
 const router = require("express").Router();
 
-router.post("/postMessage", contactController);
+router.post("/sendContactUsMessage", contactController);
 
 module.exports = router;

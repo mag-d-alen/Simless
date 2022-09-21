@@ -7,7 +7,7 @@ export const contactApi = createApi({
   endpoints: (builder) => ({
     postMessage: builder.mutation<any, ContactFormInputType>({
       query: ({ name, email, message, phone }) => ({
-        url: "postMessage",
+        url: "sendContactUsMessage",
         method: "POST",
         body: { name, email, message, phone },
       }),
