@@ -17,3 +17,6 @@ export const invoiceApi = createApi({
   }),
 });
  export const {useCreateInvoiceMutation} = invoiceApi;
+
+
+ //TODO what values to send in the body to invoice API?

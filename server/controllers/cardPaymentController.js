@@ -10,9 +10,12 @@ const cardPaymentController = async (req, res) => {
       `${CARDCOM_URI}UserName=${CARDCOM_UNAME}&Sum=${amount}&Languages=en&Coinid=usd&CardOwnerName=${name}&CardValidityYear=${cardValidityYear}&cardvaliditymonth=${cardValidityMonth}&cardnumber=${cardNumber}&codepage=65001&cvv=${cvv}&identitynumber=${process.env.CARDCOM_IDENTITY}`
     );
     res.status(200);
+    
     res.json(response.data);
   } catch (error) {
     console.log(error);
   }
 };
 module.exports = { cardPaymentController };
+
+//
