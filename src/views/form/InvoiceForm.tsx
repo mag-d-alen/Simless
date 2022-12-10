@@ -3,7 +3,7 @@ import React from "react";
 import { initialData, InvoiceSchema } from "./form data";
 import { InputLabel } from "./form.styled";
 import { FormEntry } from "./FormEntry";
-import { Button, Divider } from "../general.styled";
+import { Button } from "../general.styled";
 import { InvoiceType } from "../../data/types";
 
 export const InvoiceForm: React.FC<{
@@ -58,7 +58,7 @@ export const InvoiceForm: React.FC<{
               values={values}
               setValues={setValues}
             />
-<Divider height="2"/>
+
             {oneForm ? (
               <InputLabel>
                 <Field type="checkbox" name="oneForm" inputfield={"oneForm"} />
